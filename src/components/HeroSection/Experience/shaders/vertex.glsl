@@ -2,6 +2,7 @@ varying vec2 vUv;
 varying vec3 vColor;
 varying vec3 vPos;
 uniform float uTime;
+uniform vec3 uColor[4];
 
     //	Simplex 3D Noise 
 //	by Ian McEwan, Ashima Arts
@@ -82,13 +83,26 @@ float snoise(vec3 v){
     void main() {
     vUv = uv; 
     vec2 noiseCoord = uv*vec2(3.4,4.2);
-    float noise = snoise(vec3(noiseCoord.x + uTime * 0.2, noiseCoord.y, uTime * 0.3));
+    float noise = snoise(vec3(noiseCoord.x + uTime * 0.2, noiseCoord.y, uTime * 0.1));
     noise = max(0., noise);
     float tilt = 0.3 * uv.y;
     float incline = 0.3 * uv.x;
     float offset = incline * mix(-1.5,1.5,uv.y);
     vec3 pos = vec3(position.x, position.y, noise * 0.3 + 0.*tilt + 0.*incline + offset );
     vPos = pos;
+
+
+     vColor = uColor[0];
+
+     for(int i = 0; i < 3; i++){
+        float noiseFlow = .5 + float(i) * 0.1 ;
+        float noiseSeed = 5. + float(i)* 10.;
+      float cNoise = snoise(vec3(noiseCoord.x + uTime * noiseFlow, noiseCoord.y, uTime * 0.3 + noiseSeed));
+
+      vColor = mix(vColor, uColor[i], cNoise);
+    };
+
+    
     vec4 modelViewPosition = modelViewMatrix * vec4(pos, 1.0);
     gl_Position = projectionMatrix * modelViewPosition; 
     }

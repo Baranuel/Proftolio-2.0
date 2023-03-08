@@ -3,13 +3,16 @@ import React, { useRef } from "react";
 import * as THREE from "three";
 import { shaderMaterial } from "@react-three/drei";
 import { Mesh } from "three";
-// ignore this import error message
-
+import colors from "nice-color-palettes";
 //@ts-ignore
 import vertex from "./shaders/vertex.glsl";
 //@ts-ignore
 import fragment from "./shaders/fragment.glsl";
 
+const randomIndex = Math.floor(Math.random() * colors.length);
+let pallete = colors[randomIndex];
+pallete = ["#3B429F", "#BA63FF", "#35B4D0", "#7190E5"];
+const convertedPallete = pallete.map((color) => new THREE.Color(color));
 function CustomMesh() {
   const mesh = useRef<Mesh>(null!);
 
@@ -25,7 +28,7 @@ function CustomMesh() {
       <shaderMaterial
         fragmentShader={fragment}
         vertexShader={vertex}
-        uniforms={{ uTime: { value: 0 } }}
+        uniforms={{ uTime: { value: 0 }, uColor: { value: convertedPallete } }}
       />
     </mesh>
   );
