@@ -1,9 +1,21 @@
-import clientPromise from "../../../lib/mongodb";
+import { NextApiRequest, NextApiResponse } from "next";
+import { Configuration, OpenAIApi } from "openai";
 
-export async function GET(request: Request) {
-  const client = await clientPromise;
-  const db = client.db("portfolio-samuel").collection("projects");
-  const projects = await db.find({}).toArray();
-  console.log(projects);
-  return new Response(JSON.stringify(projects));
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
+
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
+  try {
+    const prompt = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: "Hello how are you?",
+      temperature: 0.6,
+    });
+    return res.status(200).json({ result: prompt.data.choices[0].text });
+  } catch (error) {
+    return console.log(error);
+  }
 }
