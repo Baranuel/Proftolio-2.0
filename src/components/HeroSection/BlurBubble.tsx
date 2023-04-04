@@ -26,7 +26,7 @@ function BlurBubble({ options }: BlurBubbleProps) {
     <div
       ref={blur}
       style={options}
-      className={`w-[750px] h-[750px] absolute z-1 blur-2xl rounded-full bg-[#6C63FF] opacity-[.1] `}
+      className={`w-[150px] h-[150px] absolute z-1 blur-2xl rounded-full bg-[#6C63FF] opacity-[.1] `}
     ></div>
   );
 }
