@@ -31,12 +31,12 @@ function Tools() {
             applications a breeze.
           </p>
         </div>
-        <div className="mt-6 w-full flex flex-col border-t pt-6">
-          <h3 className="text-2xl font-bold text-zinc-700 self-start">
+        <div className="mt-6 w-full flex flex-col sm:flex-row sm:justify-between sm:items-center border-t pt-6 sm:pt-2">
+          <h3 className="text-2xl font-bold text-zinc-700 self-start sm:self-center">
             Find out more
           </h3>
           <div className="flex gap-2">
-            <a className="relative flex justify-center items-center  cursor-pointer  mt-2 px-4 py-3 sm:py-3 shadow-button active:shadow-button-pressed active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg  border border-slate-100 bg-white font-quicksand">
+            <a className="relative flex justify-center items-center  cursor-pointer  mt-2 px-4 py-3 sm:py-3 shadow-icon active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg  border border-slate-100 bg-white font-quicksand">
               <Image
                 src="/linkedin-in.svg"
                 alt="github"
@@ -44,7 +44,7 @@ function Tools() {
                 height={25}
               />
             </a>
-            <a className=" relative flex justify-center items-center cursor-pointer  mt-2 px-4 py-3 sm:py-3 shadow-button active:shadow-button-pressed active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg  border border-slate-100 bg-white font-quicksand">
+            <a className=" relative flex justify-center items-center cursor-pointer  mt-2 px-4 py-3 sm:py-3 shadow-icon  active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg  border border-slate-100 bg-white font-quicksand">
               <Image src="/github.svg" alt="github" width={25} height={25} />
             </a>
           </div>
