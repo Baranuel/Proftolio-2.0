@@ -11,10 +11,10 @@ function Hero() {
       <div className="relative w-2/3 md:w-full h-[75px] lg:h-[10vw]">
         <Image src={nameTag} alt="Samuel Baran" fill priority />
       </div>
-      <p className="mt-6 sm:mt-6 text-left  text-2xl lg:text-lg sm:text-md sm:text-center font-quicksand text-zinc-500">
+      <p className="mt-6 sm:mt-6 text-left  text-xl lg:text-lg sm:text-md sm:text-center font-quicksand text-zinc-500">
         Creative developer with passion for eye-catching products
       </p>
-      <button className=" mt-8  px-6 py-4 sm:py-3 shadow-button active:shadow-button-pressed active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg min-w-[220px] w-[250px] sm:w-[200px] border border-slate-100 bg-slate-100 font-quicksand">
+      <button className=" mt-10  px-6 py-4 sm:py-3 shadow-button active:shadow-button-pressed active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg min-w-[220px] w-[250px] sm:w-[200px] border border-slate-100 bg-slate-100 font-quicksand">
         <p className="text-inner text-2xl sm:text-lg text-lightPink font-medium">
           See projects
         </p>

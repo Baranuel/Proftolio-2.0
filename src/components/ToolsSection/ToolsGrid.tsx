@@ -43,7 +43,6 @@ function ToolsGrid() {
     if (inView) {
       typescriptAnimation();
     } else {
-      controls.start("hidden");
       jsControls.start({
         x: "50%",
         rotateZ:0 
@@ -69,7 +68,7 @@ function ToolsGrid() {
         initial="hidden"
         animate={controls}
         exit={{ opacity: 0 }}
-        className="grid h-full w-full grid-cols-12 p-6 xl:p-0  grid-rows-5 gap-2 z-50 overflow-x-hidden"
+        className="grid h-full w-full grid-cols-12 p-6 xl:p-1  grid-rows-5 gap-2 z-50 overflow-x-hidden"
       >
         <motion.div
           ref={jsIconRef}
