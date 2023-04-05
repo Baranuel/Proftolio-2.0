@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, animate, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -9,48 +9,53 @@ const item = {
   show: { opacity: 1, x: 0 },
 };
 
-const showTypescript = {
-  hidden: { opacity: 0, x: "100%" },
-  show: { opacity: 1, x: 0, transition: { delay: 0.75 } },
+const appear = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
 };
 
 function ToolsGrid() {
-  const appear = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  };
   const jsIconRef = useRef<HTMLDivElement>(null!);
   const tsIconRef = useRef<HTMLDivElement>(null!);
   const { ref, inView } = useInView({
-    threshold: 1,
+    threshold: 0.75,
   });
   const controls = useAnimation();
-  const [visible, setVisible] = useState(false);
-  const typescriptControls = useAnimation();
+  const tsControls = useAnimation();
+  const jsControls = useAnimation();
+  
+  const typescriptAnimation = useCallback(async () => {
+    await controls.start("show")
+     jsControls.start({ x: "0%" }, {delay:0.05});
+     await tsControls.start({ x: "0%" })
+     tsControls.start({ x: "-50%" })
+     await tsControls.start({ x: "25%", transition: { ease: 'easeOut', duration: 0.2} })
+    tsControls.start({ x: "-50%" })
+    jsControls.start({ x: "-200%", rotateZ:-90 , transition: {duration:0.5} } ,);
+   },[controls, jsControls, tsControls]);
 
   useEffect(() => {
     if (inView) {
-      controls.start("show");
+      typescriptAnimation();
     } else {
       controls.start("hidden");
+      jsControls.start({
+        x: "50%",
+        rotateZ:0 
+      })
+      tsControls.start({ x: "200%" })
     }
-  }, [controls, inView]);
+  }, [controls, inView, jsControls, tsControls, typescriptAnimation]);
 
-  const typescriptAnimation = async () => {
-    const jsIcon = jsIconRef.current;
-    const tsIcon = tsIconRef.current;
-
-    await animate(tsIcon, { x: 0, opacity: 1 });
-    await animate(jsIcon, { x: -25, opacity: 1 }, { delay: 0 });
-  };
+  
 
   return (
-    <motion.div className="flex-col flex w-full ]">
+    <motion.div className="flex-col flex w-full ">
       <h1
         onClick={() => typescriptAnimation()}
         className="text-4xl z-50 mb-8 py-2 font-bold text-transparent hidden self-center  lg:block bg-clip-text bg-gradient-to-r  from-lightBlue via-lightPink to-darkPurple "
@@ -64,32 +69,31 @@ function ToolsGrid() {
         initial="hidden"
         animate={controls}
         exit={{ opacity: 0 }}
-        className="grid h-full w-full grid-cols-12 p-6 xl:p-0  grid-rows-5 gap-2 z-50"
+        className="grid h-full w-full grid-cols-12 p-6 xl:p-0  grid-rows-5 gap-2 z-50 overflow-x-hidden"
       >
         <motion.div
           ref={jsIconRef}
           variants={item}
-          className="flex flex-col justify-center items-center col-start-5 col-span-3 sm:col-span-4 sm:col-start-5  rounded-xl shadow-md bg-white row-start-1"
+          className="flex justify-center overflow-hidden items-center col-start-5 col-span-3 sm:col-span-4 sm:col-start-5  rounded-xl shadow-md bg-white row-start-1"
         >
+          <motion.div ref={jsIconRef} animate={jsControls} >
           <Image
             src="/javascript.svg"
             alt="javascript"
             width={50}
             height={70}
-          />
-        </motion.div>
-        <motion.div
-          ref={tsIconRef}
-          initial={{ x: 100, opacity: 0 }}
-          className="flex flex-col justify-center items-center col-start-8 col-span-3 sm:col-span-4 sm:col-start-8  rounded-xl shadow-md bg-red-200 row-start-1"
-        >
+            />
+            </motion.div>
+          <motion.div  ref={tsIconRef} animate={tsControls}>
           <Image
-            src="/javascript.svg"
-            alt="javascript"
+            src="/typescript.svg"
+            alt="typescript"
             width={50}
             height={70}
-          />
+            />
+            </motion.div>
         </motion.div>
+
         <motion.div
           variants={item}
           className="flex justify-center items-center col-start-4 col-span-3 sm:col-span-4 sm:col-start-3 row-start-2  rounded-xl shadow-md bg-white"
@@ -158,7 +162,7 @@ function ToolsGrid() {
         </motion.div>
         <motion.div
           variants={item}
-          className="flex justify-center relative items-center col-start-8 col-span-3 sm:col-span-4 sm:col-start-7 row-start-5 rounded-xl shadow-md bg-white"
+          className="flex justify-center  items-center col-start-8 col-span-3 sm:col-span-4 sm:col-start-7 row-start-5 rounded-xl shadow-md bg-white"
         >
           <Image src="/mongodb.svg" alt="mongodb icon" width={75} height={60} />
         </motion.div>

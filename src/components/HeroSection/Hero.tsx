@@ -8,8 +8,8 @@ function Hero() {
     <div
       className={`h-screen w-screen flex flex-col items-center p-8 justify-center bg-gradient-to-tr from-white via-slate-100 to-slate-200`}
     >
-      <div className="relative w-2/3 md:w-full h-[4vw] lg:h-[10vw]">
-        <Image src={nameTag} alt="Samuel Baran" fill />
+      <div className="relative w-2/3 md:w-full h-[75px] lg:h-[10vw]">
+        <Image src={nameTag} alt="Samuel Baran" fill priority />
       </div>
       <p className="mt-6 sm:mt-6 text-left  text-2xl lg:text-lg sm:text-md sm:text-center font-quicksand text-zinc-500">
         Creative developer with passion for eye-catching products
