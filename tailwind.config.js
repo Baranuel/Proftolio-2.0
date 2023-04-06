@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       inter: ["Inter", "sans-serif"],
       quicksand: ["Quicksand", "sans-serif"],
+      k2d: ["K2D", "sans-serif"],
     },
     extend: {
       colors: {
