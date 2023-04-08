@@ -31,7 +31,8 @@ module.exports = {
       },
       boxShadow: {
         button: " 9px 9px 18px #DEDDF7, -9px -9px 18px #ffffff",
-        "button-pressed": " inset 9px 9px 18px #DEDDF7,inset -9px -9px 18px #ffffff",
+        "button-pressed":
+          " inset 9px 9px 18px #DEDDF7,inset -9px -9px 18px #ffffff",
 
         icon: "5px 5px 10px #DEDDF7, -5px -5px 10px #ffffff",
       },
