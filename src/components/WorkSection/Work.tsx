@@ -3,31 +3,9 @@ import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import ProjectCard from "./ProjectCard";
 import { useInView } from "react-intersection-observer";
+import { appear, showProject } from "../../app/animations";
 
 function Work() {
-  const appear = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  };
-
-  const showProject = {
-    hidden: { opacity: 1, x: -100, scale: 0.7 },
-    show: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      scale: 1,
-      transition: {
-        ease: "easeIn",
-      },
-    },
-  };
-
   const controls = useAnimation();
   const { ref, inView } = useInView({
     threshold: 0.25,

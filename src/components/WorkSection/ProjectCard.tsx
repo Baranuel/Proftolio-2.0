@@ -66,7 +66,7 @@ function ProjectCard({ color, variants }: Props) {
           `}
     >
       <Link
-        href="/https://youtube.com"
+        href="https://youtube.com"
         className="self-center p-8 md:p-4 h-full w-full bg-transparent  flex flex-col relative z-50"
       >
         <div className="flex items-center justify-between">
