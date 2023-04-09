@@ -27,11 +27,10 @@ function Work() {
       },
     },
   };
-  const isMobile = window.innerWidth ?? 0 < 768;
 
   const controls = useAnimation();
   const { ref, inView } = useInView({
-    threshold: isMobile ? 0.25 : 0.5,
+    threshold: 0.25,
   });
 
   useEffect(() => {
