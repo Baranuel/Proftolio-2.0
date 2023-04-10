@@ -23,21 +23,28 @@ function ToolsGrid() {
   const jsIconRef = useRef<HTMLDivElement>(null!);
   const tsIconRef = useRef<HTMLDivElement>(null!);
   const { ref, inView } = useInView({
-    threshold: 0.75,
+    threshold: 0.5,
   });
   const controls = useAnimation();
   const tsControls = useAnimation();
   const jsControls = useAnimation();
-  
+
   const typescriptAnimation = useCallback(async () => {
-    await controls.start("show")
-     jsControls.start({ x: "0%" }, {delay:0.05});
-     await tsControls.start({ x: "0%" })
-     tsControls.start({ x: "-50%" })
-     await tsControls.start({ x: "25%", transition: { ease: 'easeOut', duration: 0.2} })
-    tsControls.start({ x: "-50%" })
-    jsControls.start({ x: "-200%", rotateZ:-90 , transition: {duration:0.5} } ,);
-   },[controls, jsControls, tsControls]);
+    await controls.start("show");
+    jsControls.start({ x: "0%" }, { delay: 0.05 });
+    await tsControls.start({ x: "0%" });
+    tsControls.start({ x: "-50%" });
+    await tsControls.start({
+      x: "25%",
+      transition: { ease: "easeOut", duration: 0.2 },
+    });
+    tsControls.start({ x: "-50%" });
+    jsControls.start({
+      x: "-250%",
+      rotateZ: -90,
+      transition: { duration: 0.5 },
+    });
+  }, [controls, jsControls, tsControls]);
 
   useEffect(() => {
     if (inView) {
@@ -45,13 +52,11 @@ function ToolsGrid() {
     } else {
       jsControls.start({
         x: "50%",
-        rotateZ:0 
-      })
-      tsControls.start({ x: "200%" })
+        rotateZ: 0,
+      });
+      tsControls.start({ x: "250%" });
     }
   }, [controls, inView, jsControls, tsControls, typescriptAnimation]);
-
-  
 
   return (
     <motion.div className="flex-col flex w-full ">
@@ -68,29 +73,29 @@ function ToolsGrid() {
         initial="hidden"
         animate={controls}
         exit={{ opacity: 0 }}
-        className="grid h-full w-full grid-cols-12 p-6 xl:p-1  grid-rows-5 gap-2 z-50 overflow-x-hidden"
+        className="grid max:h-[600px] h-[475px] md:h-full w-full grid-cols-12 max:grid-cols-24 p-6 xl:p-1  grid-rows-5 gap-2 z-50 overflow-x-hidden"
       >
         <motion.div
           ref={jsIconRef}
           variants={item}
           className="flex justify-center overflow-hidden items-center col-start-5 col-span-3 sm:col-span-4 sm:col-start-5  rounded-xl shadow-md bg-white row-start-1"
         >
-          <motion.div ref={jsIconRef} animate={jsControls} >
-          <Image
-            src="/javascript.svg"
-            alt="javascript"
-            width={50}
-            height={70}
+          <motion.div ref={jsIconRef} animate={jsControls}>
+            <Image
+              src="/javascript.svg"
+              alt="javascript"
+              width={50}
+              height={70}
             />
-            </motion.div>
-          <motion.div  ref={tsIconRef} animate={tsControls}>
-          <Image
-            src="/typescript.svg"
-            alt="typescript"
-            width={50}
-            height={70}
+          </motion.div>
+          <motion.div ref={tsIconRef} animate={tsControls}>
+            <Image
+              src="/typescript.svg"
+              alt="typescript"
+              width={50}
+              height={70}
             />
-            </motion.div>
+          </motion.div>
         </motion.div>
 
         <motion.div

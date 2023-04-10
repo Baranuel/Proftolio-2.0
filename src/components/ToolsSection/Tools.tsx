@@ -7,10 +7,10 @@ function Tools() {
     <div className="min-h-screen w-screen justify-between lg:justify-around items-center flex lg:flex-col-reverse px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-24 gap-8">
       <div className="w-1/3 lg:w-3/4 sm:w-full h-fit max-h-fit flex flex-col justify-between">
         <div>
-          <h1 className="text-5xl py-2 font-bold text-transparent lg:hidden bg-clip-text bg-gradient-to-r from-lightBlue via-lightPink to-darkPurple self-start">
+          <h1 className="text-5xl max:text-7xl py-2 font-bold text-transparent lg:hidden bg-clip-text bg-gradient-to-r from-lightBlue via-lightPink to-darkPurple self-start">
             My Toolbelt
           </h1>
-          <p className="text-xl lg:text-lg mt-6 text-zinc-500 font-quicksand text-justify">
+          <p className="text-xl max:text-2xl lg:text-lg mt-6 text-zinc-500 font-quicksand text-justify">
             These are tools that{" "}
             <span className="font-semibold text-lightPink">
               {" "}
@@ -20,7 +20,7 @@ function Tools() {
             testing functionality and tracking changes, each tool plays a
             crucial role in the development process.
           </p>
-          <p className="text-xl lg:text-lg mt-6 text-zinc-500 font-quicksand text-justify">
+          <p className="text-xl lg:text-lg max:text-2xl mt-6 text-zinc-500 font-quicksand text-justify">
             As a{" "}
             <span className="font-semibold text-lightPink">
               {" "}
@@ -49,7 +49,7 @@ function Tools() {
           </div>
         </div>
       </div>
-      <div className="w-1/2 2xl:w-3/5 lg:w-3/4 md:w-full h-fit max-h-fit flex justify-center items-center rounded-full relative z-50">
+      <div className="w-1/2 max:w-2/4 2xl:w-3/5 lg:w-3/4 md:w-full h-fit max:h-full flex justify-center items-center rounded-full relative z-50">
         <ToolsGrid />
         <div className="absolute w-full h-full blur-2xl bg-hazyPink z-1"></div>
       </div>

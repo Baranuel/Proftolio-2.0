@@ -58,7 +58,7 @@ function ProjectCard({ color, variants }: Props) {
       variants={variants}
       onMouseOver={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
-      className={`flex flex-col justify-between hover:cursor-pointer p-2 h-[300px] md:h-[275px] w-[450px]   rounded-lg  ${
+      className={`flex flex-col justify-between hover:cursor-pointer p-2 max:h-[320px] max:w-[550px] h-[300px] md:h-[250px] w-[450px]   rounded-lg  ${
         active
           ? `  shadow-[0px_5px_15px_0]  outline outline-2 ${colors.outline[color]}  ${colors.shadow[color]} `
           : " outline outline-1 outline-purple-200 "
@@ -71,17 +71,17 @@ function ProjectCard({ color, variants }: Props) {
       >
         <div className="flex items-center justify-between">
           <h1
-            className={`z-50 ${colors.text[color]} font-inter text-3xl md:text-2xl font-black transition-all duration-100 `}
+            className={`z-50 ${colors.text[color]} font-inter text-3xl max:text-4xl md:text-2xl font-black transition-all duration-100 `}
           >
             Paluba
           </h1>
           <span
-            className={`py-1 outline outline-1 ${colors.outline[color]} ${colors.bg[color]} ${colors.text[color]} rounded-xl px-4 text-sm md:text-xs`}
+            className={`py-1 outline outline-1 ${colors.outline[color]} ${colors.bg[color]} ${colors.text[color]} rounded-xl px-4 max:text-lg text-sm md:text-xs`}
           >
             Redesign
           </span>
         </div>
-        <div className="flex flex-wrap gap-1 mt-3 md:mt-1 font-light md:text-md text-slate-400">
+        <div className="flex flex-wrap gap-1 mt-3 md:mt-1 font-light max:text-xl md:text-md text-slate-400">
           <span>Next.js</span>
           <span>Tailwindcss</span>
           <span>Typescript</span>
@@ -90,8 +90,8 @@ function ProjectCard({ color, variants }: Props) {
         <hr className="my-2" />
         <div className="flex flex-col h-auto w-full grow gap-1 justify-center   ">
           <div className=" self-center">
-            <span className="font-bold font-inter">Overview</span>
-            <p className="text-md w-full">
+            <span className="font-bold font-inter max:text-xl">Overview</span>
+            <p className="text-md w-full max:text-xl">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
               aut quae est.
             </p>
