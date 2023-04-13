@@ -8,13 +8,18 @@ export const appear = {
   },
 };
 
+export const appearWork = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+  },
+};
+
 export const showProject = {
-  hidden: { opacity: 1, x: -100, scale: 0.7 },
+  hidden: { opacity: 1, x: 100 },
   show: {
     opacity: 1,
     x: 0,
-    y: 0,
-    scale: 1,
     transition: {
       ease: "easeIn",
     },

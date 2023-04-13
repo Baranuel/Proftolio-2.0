@@ -78,7 +78,7 @@ function ToolsGrid() {
         <motion.div
           ref={jsIconRef}
           variants={item}
-          className="flex justify-center overflow-hidden items-center col-start-5 col-span-3 sm:col-span-4 sm:col-start-5  rounded-xl shadow-md bg-white row-start-1"
+          className="flex justify-center overflow-hidden items-center col-start-6 col-span-3 md:col-span-4 md:col-start-5  rounded-xl shadow-md bg-white row-start-1"
         >
           <motion.div ref={jsIconRef} animate={jsControls}>
             <Image
@@ -100,21 +100,21 @@ function ToolsGrid() {
 
         <motion.div
           variants={item}
-          className="flex justify-center items-center col-start-4 col-span-3 sm:col-span-4 sm:col-start-3 row-start-2  rounded-xl shadow-md bg-white"
+          className="flex justify-center items-center col-start-5 col-span-3 md:col-span-4 md:col-start-3 row-start-2  rounded-xl shadow-md bg-white"
         >
           <Image src="/next.svg" alt="nextjs" width={65} height={75} />
         </motion.div>
 
         <motion.div
           variants={item}
-          className="flex justify-center items-center col-start-7 col-span-3 sm:col-span-4 sm:col-star7 row-start-2  rounded-xl shadow-md bg-white"
+          className="flex justify-center items-center col-start-8 col-span-3 md:col-span-4 sm:col-star7 row-start-2  rounded-xl shadow-md bg-white"
         >
           <Image src="/react.svg" alt="react icon" width={50} height={70} />
         </motion.div>
 
         <motion.div
           variants={item}
-          className="flex justify-center items-center col-start-2 col-span-3 sm:col-span-4 row-start-3 rounded-xl shadow-md bg-white"
+          className="flex justify-center items-center col-start-3 col-span-3 md:col-span-4 row-start-3 rounded-xl shadow-md bg-white"
         >
           <Image
             src="/icons8-tailwindcss.svg"
@@ -126,19 +126,19 @@ function ToolsGrid() {
 
         <motion.div
           variants={item}
-          className="flex justify-center items-center col-span-3 sm:col-span-4 row-start-3 rounded-xl shadow-md bg-white"
+          className="flex justify-center items-center col-span-3 md:col-span-4 row-start-3 rounded-xl shadow-md bg-white"
         >
           <Image src="/framer.svg" alt="framer icon" width={30} height={30} />
         </motion.div>
         <motion.div
           variants={item}
-          className="flex justify-center items-center col-span-3 sm:col-span-4 row-start-3 rounded-xl shadow-md bg-white"
+          className="flex justify-center items-center col-start-9 col-span-3 md:col-span-4 row-start-3 rounded-xl shadow-md bg-white"
         >
           <Image src="/jest.svg" alt="jest icon" width={50} height={50} />
         </motion.div>
         <motion.div
           variants={item}
-          className="flex justify-center items-center col-start-4 col-span-3 sm:col-span-4 sm:col-start-4 row-start-4 rounded-xl shadow-md bg-white"
+          className="flex justify-center items-center col-start-5 col-span-3 md:col-span-4 md:col-start-4 row-start-4 rounded-xl shadow-md bg-white"
         >
           <Image
             src="/mongoose.svg"
@@ -149,13 +149,13 @@ function ToolsGrid() {
         </motion.div>
         <motion.div
           variants={item}
-          className="flex justify-center items-center col-start-7 col-span-3 sm:col-span-4 sm:col-start-8 row-start-4 rounded-xl shadow-md bg-white"
+          className="flex justify-center items-center col-start-8 col-span-3 md:col-span-4 md:col-start-8 row-start-4 rounded-xl shadow-md bg-white"
         >
           <Image src="/nestjs.svg" alt="nestjs icon" width={50} height={50} />
         </motion.div>
         <motion.div
           variants={item}
-          className="flex justify-center items-center col-start-6 col-span-2 sm:col-span-4 sm:col-start-3 row-start-5 rounded-xl shadow-md bg-white"
+          className="flex justify-center items-center col-start-7 col-span-2 md:col-span-4 md:col-start-3 row-start-5 rounded-xl shadow-md bg-white"
         >
           <Image
             src="/postgresql.svg"
@@ -166,7 +166,7 @@ function ToolsGrid() {
         </motion.div>
         <motion.div
           variants={item}
-          className="flex justify-center  items-center col-start-8 col-span-3 sm:col-span-4 sm:col-start-7 row-start-5 rounded-xl shadow-md bg-white"
+          className="flex justify-center  items-center col-start-9 col-span-3 md:col-span-4 md:col-start-7 row-start-5 rounded-xl shadow-md bg-white"
         >
           <Image src="/mongodb.svg" alt="mongodb icon" width={75} height={60} />
         </motion.div>

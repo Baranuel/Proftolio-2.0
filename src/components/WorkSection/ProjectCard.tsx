@@ -29,12 +29,12 @@ function ProjectCard({ color, variants }: Props) {
       slate: "text-slate-500",
     },
     outline: {
-      green: "outline-green-500/30",
-      red: "outline-red-500/30",
-      purple: "outline-purple-500/30",
-      teal: "outline-teal-500/30",
-      amber: "outline-amber-500/30",
-      slate: "outline-slate-500/30",
+      green: "outline-green-500/50",
+      red: "outline-red-500/50",
+      purple: "outline-purple-500/50",
+      teal: "outline-teal-500/50",
+      amber: "outline-amber-500/50",
+      slate: "outline-slate-500/50",
     },
     bg: {
       green: "bg-green-500/20",
@@ -58,20 +58,20 @@ function ProjectCard({ color, variants }: Props) {
       variants={variants}
       onMouseOver={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
-      className={`flex flex-col justify-between hover:cursor-pointer p-2 max:h-[320px] max:w-[550px] h-[300px] md:h-[250px] w-[450px]   rounded-lg  ${
+      className={`flex flex-col justify-between hover:cursor-pointer p-2 max:h-[320px] max:w-[550px] min-w-[350px] h-[275px] md:h-[250px] w-[calc(33%-15px)] xl:w-[450px]   rounded-lg  ${
         active
-          ? `  shadow-[0px_5px_15px_0]  outline outline-2 ${colors.outline[color]}  ${colors.shadow[color]} `
+          ? `   outline outline-2 ${colors.outline[color]}  } `
           : " outline outline-1 outline-purple-200 "
-      } relative shadow-md bg-white transition-shadow duration-200
+      } relative shadow-md bg-white transition-outline duration-200
           `}
     >
       <Link
         href="https://youtube.com"
-        className="self-center p-8 md:p-4 h-full w-full bg-transparent  flex flex-col relative z-50"
+        className="self-center p-8 md:p-6 h-full w-full bg-transparent  flex flex-col relative z-50"
       >
         <div className="flex items-center justify-between">
           <h1
-            className={`z-50 ${colors.text[color]} font-inter text-3xl max:text-4xl md:text-2xl font-black transition-all duration-100 `}
+            className={`z-50 ${colors.text[color]} font-inter text-3xl max:text-4xl md:text-3xl font-black transition-all duration-100 `}
           >
             Paluba
           </h1>
