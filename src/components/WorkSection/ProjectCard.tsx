@@ -67,7 +67,7 @@ function ProjectCard({ color, variants }: Props) {
     >
       <Link
         href="https://youtube.com"
-        className="self-center p-8 md:p-6 h-full w-full bg-transparent  flex flex-col relative z-50"
+        className="self-center p-8  lg:p-6 h-full w-full bg-transparent  flex flex-col relative z-50"
       >
         <div className="flex items-center justify-between">
           <h1
@@ -81,7 +81,7 @@ function ProjectCard({ color, variants }: Props) {
             Redesign
           </span>
         </div>
-        <div className="flex flex-wrap gap-1 mt-3 md:mt-1 font-light max:text-xl md:text-md text-slate-400">
+        <div className="flex flex-wrap gap-1 mt-3 md:mt-1 font-light max:text-xl text-md  text-slate-400">
           <span>Next.js</span>
           <span>Tailwindcss</span>
           <span>Typescript</span>

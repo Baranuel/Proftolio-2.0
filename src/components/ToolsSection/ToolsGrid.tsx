@@ -73,7 +73,7 @@ function ToolsGrid() {
         initial="hidden"
         animate={controls}
         exit={{ opacity: 0 }}
-        className="grid max:h-[600px] h-[475px] md:h-full w-full grid-cols-12 max:grid-cols-24 p-6 xl:p-1  grid-rows-5 gap-2 z-50 overflow-x-hidden"
+        className="grid max:h-[600px] 2xl:h-[470px] h-[500px] md:h-full w-full grid-cols-12 max:grid-cols-24 p-6 xl:p-1  grid-rows-5 gap-2 z-50 overflow-x-hidden"
       >
         <motion.div
           ref={jsIconRef}
