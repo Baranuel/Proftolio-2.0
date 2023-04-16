@@ -8,6 +8,10 @@ function ProjectPage() {
   const panelControls = useAnimation();
   const [visible, setVisible] = useState(false);
 
+  const [selectedTab, setSelectedTab] = useState("overview");
+
+  const tabs = ["overview", "code"];
+
   const handleShowWeb = () => {
     if (!visible) {
       setVisible(true);
@@ -20,17 +24,47 @@ function ProjectPage() {
     }
   };
   return (
-    <motion.div className="flex relative  max-h-screen w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-24">
-      <motion.div className="w-screen mt-12 text-black  ">
-        {!visible && (
-          <h1
-            className="text-6xl font-inter font-bold"
-            onClick={() => handleShowWeb()}
-          >
-            Project Page
-          </h1>
-        )}
-      </motion.div>
+    <motion.div className="flex relative   w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-24">
+      {!visible && (
+        <motion.div className="w-screen grid grid-rows-2  mt-12 text-black  ">
+          <div className="  flex items-center w-full justify-between gap-4">
+            <h1 className="text-6xl font-inter font-bold text-green-500">
+              Paluba
+            </h1>
+            <button
+              className="text-xl font-inter"
+              onClick={() => handleShowWeb()}
+            >
+              Next Project
+            </button>
+          </div>
+          <hr className="my-6" />
+
+          <div className="flex gap-2">
+            {tabs.map((tab, index) => (
+              <motion.div key={index} onClick={() => setSelectedTab(tab)}>
+                {tab}
+                {selectedTab === tab && (
+                  <motion.div
+                    layoutId="tab"
+                    transition={{ ease: [0.06, 0.975, 0.195, 0.985] }}
+                    className="w-full h-1 bg-black"
+                  ></motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="min-h-[70vh] mt-2 shadow-md">
+            <iframe
+              className=" outline outline-1 outline-purple-200 rounded-md"
+              src="https://paluba.vercel.app/"
+              width="100%"
+              height="100%"
+            ></iframe>
+          </div>
+        </motion.div>
+      )}
 
       <section
         className={
