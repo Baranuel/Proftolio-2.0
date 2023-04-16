@@ -58,7 +58,7 @@ function ProjectCard({ color, variants }: Props) {
       variants={variants}
       onMouseOver={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
-      className={`flex flex-col justify-between hover:cursor-pointer p-2 max:h-[320px] max:w-[550px] min-w-[350px] h-[275px] md:h-[250px] w-[calc(33%-15px)] xl:w-[450px]   rounded-lg  ${
+      className={`flex flex-col justify-between hover:cursor-pointer p-2 max:h-[320px] max:w-[550px] min-w-[350px] h-[300px] lg:h-[275px] md:h-[250px] w-[calc(33%-15px)] xl:w-[450px]   rounded-lg  ${
         active
           ? `   outline outline-2 ${colors.outline[color]}  } `
           : " outline outline-1 outline-purple-200 "
@@ -66,7 +66,7 @@ function ProjectCard({ color, variants }: Props) {
           `}
     >
       <Link
-        href="https://youtube.com"
+        href="project/1"
         className="self-center p-8  lg:p-6 h-full w-full bg-transparent  flex flex-col relative z-50"
       >
         <div className="flex items-center justify-between">
