@@ -1,12 +1,15 @@
 "use client";
-import { motion, useAnimation } from "framer-motion";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import React, { useState } from "react";
-import { panelAnimation, webAnimation } from "../../animations";
+import { panelAnimation, webAnimation, webProjectModal } from "../../animations";
+import ProjectPreview from "./(components)/ProjectPreview";
 
 function ProjectPage() {
   const iFrameControls = useAnimation();
   const panelControls = useAnimation();
+  const modalControls = useAnimation();
   const [visible, setVisible] = useState(false);
+  const [visibleTest, setVisibleTest] = useState(false);
 
   const [selectedTab, setSelectedTab] = useState("overview");
 
@@ -22,7 +25,18 @@ function ProjectPage() {
       panelControls.start("hidden");
       iFrameControls.start("hidden");
     }
+
   };
+
+  const animateModal = async () => {
+    setVisibleTest(!visibleTest)
+    await modalControls.start({
+      width:"100%",
+    })
+    await modalControls.start({
+      height:500,
+    })
+  }
   return (
     <motion.div className="flex relative   w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-24">
       {!visible && (
@@ -33,7 +47,7 @@ function ProjectPage() {
             </h1>
             <button
               className="text-xl font-inter"
-              onClick={() => handleShowWeb()}
+              onClick={() => animateModal()}
             >
               Next Project
             </button>
@@ -54,15 +68,12 @@ function ProjectPage() {
               </motion.div>
             ))}
           </div>
-
-          <div className="min-h-[70vh] mt-2 shadow-md">
-            <iframe
-              className=" outline outline-1 outline-purple-200 rounded-md"
-              src="https://paluba.vercel.app/"
-              width="100%"
-              height="100%"
-            ></iframe>
-          </div>
+        <AnimatePresence>
+          {
+            visibleTest &&
+            <ProjectPreview />
+            }
+        </AnimatePresence>
         </motion.div>
       )}
 

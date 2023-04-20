@@ -56,11 +56,14 @@ export const panelAnimation = {
   },
 };
 
-// export const panelAnimation = {
-//   hidden: {
-//     width: "5%",
-//   },
-//   show: {
-//     width: "100%",
-//   },
-// };
+export const webProjectModal = {
+  hidden: {
+    height: 0,
+    width: 0,
+  },
+  show: {
+    height: "100%",
+    width: "100%",
+
+}
+}
