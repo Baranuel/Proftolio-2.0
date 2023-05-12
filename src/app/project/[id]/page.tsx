@@ -27,7 +27,7 @@ function ProjectPage() {
                 Paluba
               </h1>
               <button
-                className="text-xl font-inter"
+                className="text-md font-inter"
               >
                 Next Project
               </button>
@@ -39,7 +39,7 @@ function ProjectPage() {
             <Image src='/grains.jpg' alt="thumbnail" fill className="rounded-xl"/>
            </motion.div>
 
-           <motion.ul className="hidden md:flex gap-2">
+           <motion.ul className="hidden md:flex my-4 gap-2">
             <motion.li className=" min-w-[120px] flex justify-center items-center gap-1 text-purple-800 hover:cursor-pointer outline outline-1 outline-purple-800 p-2 rounded-md">
             <AiFillGithub  className="text-2xl"/>
             <p className="text-md">Github</p>
@@ -51,6 +51,12 @@ function ProjectPage() {
             <p className="text-md">See Live</p>
             </motion.li>
           </motion.ul>
+
+          <motion.div className="mt-4">
+              <h1 className="text-xl text-green-500 font-semibold">Deliverables</h1>
+              <ul className="mt-2">{deliverables.map((item, index) => <li key={index} className="text-[#333] text-bold">{item} </li>)}</ul>
+            </motion.div>
+
             <motion.div className="  flex md:flex-col gap-6 justify-between">
             <motion.div className="mt-4">
               <h1 className="text-xl text-[#333] font-semibold">Overview</h1>
@@ -60,11 +66,6 @@ function ProjectPage() {
             </motion.div>
 
            
-
-            <motion.div className="mt-4">
-              <h1 className="text-xl text-green-500 font-semibold">Deliverables</h1>
-              <ul className="mt-2">{deliverables.map((item, index) => <li key={index} className="text-[#333] text-bold">{item} </li>)}</ul>
-            </motion.div>
             </motion.div>
           </motion.div>
           <motion.div className="mt-12">
