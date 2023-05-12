@@ -71,7 +71,7 @@ function ProjectPage() {
         <AnimatePresence>
           {
             visibleTest &&
-            <ProjectPreview />
+            <ProjectPreview animateModal={animateModal} />
             }
         </AnimatePresence>
         </motion.div>
