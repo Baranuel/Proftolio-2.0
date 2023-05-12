@@ -91,8 +91,8 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
           alignItems: "center",
           display: "flex",
           flexDirection: "column",
-          width:"95vw",
-          height:"90vh",
+          width:"90vw",
+          height:"75vh",
         }}
         animate={isFullScreen ? {width:window.innerWidth,height:window.innerHeight, transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985] },
         
