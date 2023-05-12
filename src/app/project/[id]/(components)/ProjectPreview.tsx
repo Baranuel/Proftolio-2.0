@@ -1,7 +1,7 @@
 "use client";
 import { motion, usePresence, useAnimate } from "framer-motion";
 import React, { useCallback, useEffect } from "react";
-import { faTimes, faExpand } from "@fortawesome/free-solid-svg-icons";
+import { faExpand, faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function ProjectPreview({animateModal}: {animateModal: () => void}) {
@@ -58,41 +58,53 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
 
 
   return (
-    <>
+    <motion.div initial={{position:"absolute",left: "50%",
+    opacity:0,
+    top: "50%",
+    translateX: "-50%",
+    translateY: "-50%",
+    width:"100vw",
+    height:"100vh"}} 
+    animate={ {opacity:1, transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985] },
+        
+  }}
+    className="w-screen h-screen bg-[#333]/50">
 
     <motion.div
+    className=""
       initial={{
           position: "absolute",
           left: "50%",
-          top: "30%",
+          top: "50%",
           translateX: "-50%",
+          translateY: "-50%",
           justifyContent: "center",
           alignItems: "center",
           display: "flex",
+          flexDirection: "column",
           width:"90vw",
           height:"80vh",
         }}
-        animate={isFullScreen ? {width:"100vw",height:"100vh", top:0, transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985] },
+        animate={isFullScreen ? {width:"100vw",height:"100vh", transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985] },
         
     } : {}}
         >
-          <motion.div ref={scopeOptions} initial={{opacity:0}} className="absolute top-0 left-0 h-12 p-2 w-full flex flex-row-reverse gap-6 items-center bg-red-200 z-50">
-             <FontAwesomeIcon icon={faTimes} onClick={() => animateModal()} className=" text-black text-2xl " />
-             <FontAwesomeIcon icon={faExpand} onClick={() => setIsFullScreen(!isFullScreen)} className=" text-black text-xl " />
-
+          <motion.div ref={scopeOptions} initial={{opacity:0}} className=" outline outline-1 outline-purple-200 rounded-t-md  p-2 w-full flex flex-row-reverse gap-4 items-center bg-red-200 ">
+             <FontAwesomeIcon icon={faClose} onClick={() => animateModal()} className=" text-black text-2xl hover:cursor-pointer" />
+             <FontAwesomeIcon icon={faExpand} onClick={() => setIsFullScreen(!isFullScreen)} className=" text-black text-xl  hover:cursor-pointer " />
           </motion.div>
 
       <motion.iframe
         ref={scope}
-        initial={{ width: 0, height: 0, }}
-        className={`outline outline-1 outline-purple-200 ${!isFullScreen ? "rounded-md" :""}`}
+        initial={{ width: 0, height: 0 }}
+        className={`outline outline-1 outline-purple-200 ${!isFullScreen ? "rounded-b-md" :""}`}
         src="https://paluba.vercel.app/"
         width="100%"
         height="100%"
         title="project preview"
         ></motion.iframe>
     </motion.div>
-        </>
+        </motion.div>
   );
 }
 
