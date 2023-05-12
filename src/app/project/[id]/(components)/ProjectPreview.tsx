@@ -85,7 +85,7 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
           width:"95vw",
           height:"80vh",
         }}
-        animate={isFullScreen ? {width:"100%",height:"100%", transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985] },
+        animate={isFullScreen ? {width:window.innerWidth,height:window.innerHeight, transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985] },
         
     } : {}}
         >
