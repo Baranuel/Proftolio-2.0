@@ -1,5 +1,5 @@
 "use client";
-import { motion, usePresence, useAnimate } from "framer-motion";
+import { motion, usePresence, useAnimate, useAnimationControls } from "framer-motion";
 import React, { useCallback, useEffect } from "react";
 import { faExpand, faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +9,17 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
   const [scope, animate] = useAnimate();
   const [scopeOptions, animateOptions] = useAnimate();
   const [isFullScreen, setIsFullScreen] = React.useState(false);
+  const controls = useAnimationControls()
+
+  const resizeFullScreen = () => {
+    setIsFullScreen(!isFullScreen);
+    controls.start({opacity:1, transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985]} })
+
+  }
+
+  window.onresize = () => {
+    controls.start({opacity:1, transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985]} })
+  }
 
   const isPresentAnimation = useCallback(async () => {
     await animate(scope.current, {
@@ -91,7 +102,7 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
         >
           <motion.div ref={scopeOptions} initial={{opacity:0}} className=" outline outline-1 outline-purple-200 rounded-t-md  p-2 w-full flex flex-row-reverse gap-4 items-center bg-red-200 ">
              <FontAwesomeIcon icon={faClose} onClick={() => animateModal()} className=" text-black text-2xl hover:cursor-pointer" />
-             <FontAwesomeIcon icon={faExpand} onClick={() => setIsFullScreen(!isFullScreen)} className=" text-black text-xl  hover:cursor-pointer " />
+             <FontAwesomeIcon icon={faExpand} onClick={() => resizeFullScreen()} className=" text-black text-xl  hover:cursor-pointer " />
           </motion.div>
 
       <motion.iframe
