@@ -58,7 +58,7 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
 
 
   return (
-    <motion.div initial={{position:"absolute",left: "50%",
+    <motion.div initial={{position:"fixed",left: "50%",
     opacity:0,
     top: "50%",
     translateX: "-50%",
@@ -73,7 +73,7 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
     <motion.div
     className=""
       initial={{
-          position: "absolute",
+          position: "fixed",
           left: "50%",
           top: "50%",
           translateX: "-50%",
