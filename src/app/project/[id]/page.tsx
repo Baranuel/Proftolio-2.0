@@ -38,15 +38,8 @@ function ProjectPage() {
            <motion.div className="relative h-[25vh] bg-red-200 rounded-xl">
             <Image src='/grains.jpg' alt="thumbnail" fill className="rounded-xl"/>
            </motion.div>
-            <motion.div className="  flex md:flex-col gap-6 justify-between">
-            <motion.div className="mt-4">
-              <h1 className="text-xl text-[#333] font-semibold">Overview</h1>
-              <p className="w-[75ch] md:w-full mt-2 text-justify">
-                {`In my recent project, I developed a dynamic and interactive eCommerce website using React.js, showcasing its powerful capabilities for building user interfaces. With seamless navigation and an intuitive layout, the website provided users an engaging shopping experience. The project also entailed incorporating responsive design principles, ensuring the site's usability across a wide range of devices and screen sizes.`}
-              </p>
-            </motion.div>
 
-            <motion.ul className="hidden md:flex gap-2">
+           <motion.ul className="hidden md:flex gap-2">
             <motion.li className=" min-w-[120px] flex justify-center items-center gap-1 text-purple-800 hover:cursor-pointer outline outline-1 outline-purple-800 p-2 rounded-md">
             <AiFillGithub  className="text-2xl"/>
             <p className="text-md">Github</p>
@@ -58,6 +51,15 @@ function ProjectPage() {
             <p className="text-md">See Live</p>
             </motion.li>
           </motion.ul>
+            <motion.div className="  flex md:flex-col gap-6 justify-between">
+            <motion.div className="mt-4">
+              <h1 className="text-xl text-[#333] font-semibold">Overview</h1>
+              <p className="w-[75ch] md:w-full mt-2 text-justify">
+                {`In my recent project, I developed a dynamic and interactive eCommerce website using React.js, showcasing its powerful capabilities for building user interfaces. With seamless navigation and an intuitive layout, the website provided users an engaging shopping experience. The project also entailed incorporating responsive design principles, ensuring the site's usability across a wide range of devices and screen sizes.`}
+              </p>
+            </motion.div>
+
+           
 
             <motion.div className="mt-4">
               <h1 className="text-xl text-green-500 font-semibold">Deliverables</h1>
