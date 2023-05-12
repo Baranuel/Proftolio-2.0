@@ -39,7 +39,7 @@ function ProjectPage() {
             <Image src='/grains.jpg' alt="thumbnail" fill className="rounded-xl"/>
            </motion.div>
 
-           <motion.ul className="hidden md:flex my-4 gap-2">
+           <motion.ul className="flex my-4 gap-2">
             <motion.li className=" min-w-[120px] flex justify-center items-center gap-1 text-purple-800 hover:cursor-pointer outline outline-1 outline-purple-800 p-2 rounded-md">
             <AiFillGithub  className="text-2xl"/>
             <p className="text-md">Github</p>
@@ -71,18 +71,7 @@ function ProjectPage() {
           <motion.div className="mt-12">
          
        </motion.div>  
-       <motion.ul className="md:hidden flex gap-2">
-            <motion.li className=" min-w-[120px] flex justify-center items-center gap-1 text-purple-800 hover:cursor-pointer outline outline-1 outline-purple-800 p-2 rounded-md">
-            <AiFillGithub  className="text-2xl"/>
-            <p className="text-md">Github</p>
-            </motion.li>
-            <motion.li
-                onClick={() => animateModal()}               
-                 className=" min-w-[120px] flex justify-center  items-center gap-1 bg-purple-800 text-white hover:cursor-pointer outline outline-1 outline-purple-800 p-2 rounded-md">
-            <BiShowAlt  className="text-2xl"/>
-            <p className="text-md">See Live</p>
-            </motion.li>
-          </motion.ul>
+ 
       </motion.div>
 
 
