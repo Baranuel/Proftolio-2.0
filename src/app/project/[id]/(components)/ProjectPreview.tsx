@@ -11,15 +11,22 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
   const [isFullScreen, setIsFullScreen] = React.useState(false);
   const controls = useAnimationControls()
 
-  const resizeFullScreen = () => {
+  const resizeFullScreen = useCallback(() => {
+    if (!isPresent) return;
     setIsFullScreen(!isFullScreen);
     controls.start({opacity:1, transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985]} })
+  }, [controls, isFullScreen, isPresent])
 
-  }
-
+ useEffect(() => {
   window.onresize = () => {
     resizeFullScreen();
   }
+  return () => {
+    window.onresize = () => {
+      resizeFullScreen();
+    };
+  }
+ }, [isFullScreen, resizeFullScreen])
 
   const isPresentAnimation = useCallback(async () => {
     await animate(scope.current, {
@@ -94,7 +101,7 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
           display: "flex",
           flexDirection: "column",
           width:"95vw",
-          height:"80vh",
+          height:"90vh",
         }}
         animate={isFullScreen ? {width:window.innerWidth,height:window.innerHeight, transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985] },
         
@@ -113,6 +120,7 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
         width="100%"
         height="100%"
         title="project preview"
+        loading="eager"
         ></motion.iframe>
     </motion.div>
         </motion.div>
