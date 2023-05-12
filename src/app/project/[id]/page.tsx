@@ -7,32 +7,11 @@ import {BiShowAlt} from "react-icons/bi"
 import ProjectPreview from "./(components)/ProjectPreview";
 
 function ProjectPage() {
-  const iFrameControls = useAnimation();
-  const panelControls = useAnimation();
-  const modalControls = useAnimation();
-  const [visible, setVisible] = useState(false);
-  const [visibleTest, setVisibleTest] = useState(false);
+    const [visibleTest, setVisibleTest] = useState(false);
 
-  const handleShowWeb = () => {
-    if (!visible) {
-      setVisible(true);
-      iFrameControls.start("show");
-      panelControls.start("show");
-    } else {
-      setVisible(false);
-      panelControls.start("hidden");
-      iFrameControls.start("hidden");
-    }
-  };
 
   const animateModal = async () => {
     setVisibleTest(!visibleTest);
-    await modalControls.start({
-      width: "100%",
-    });
-    await modalControls.start({
-      height: 500,
-    });
   };
 
 
