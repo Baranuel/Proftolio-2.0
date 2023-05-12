@@ -23,7 +23,7 @@ function ProjectPage() {
       <motion.div className="flex relative  w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-24 md:py-4">
           <motion.div className="w-screen grid grid-rows-2  mt-12 text-black  ">
             <div className="  flex items-center w-full justify-between gap-4">
-              <h1 className="text-6xl font-inter font-bold text-green-500">
+              <h1 className="text-6xl md:text-3xl font-inter font-bold text-green-500">
                 Paluba
               </h1>
               <button
