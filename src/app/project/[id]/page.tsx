@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image"
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import React, { useState } from "react";
 import {AiFillGithub} from "react-icons/ai"
@@ -34,8 +35,10 @@ function ProjectPage() {
             <hr className="my-6" />
             <motion.div>
 
+           <motion.div className="relative h-[25vh] bg-red-200 rounded-xl">
+            <Image src='/grains.jpg' alt="thumbnail" fill className="rounded-xl"/>
+           </motion.div>
             <motion.div className="  flex md:flex-col gap-6 justify-between">
-           
             <motion.div className="mt-4">
               <h1 className="text-xl text-[#333] font-semibold">Overview</h1>
               <p className="w-[75ch] md:w-full mt-2 text-justify">
