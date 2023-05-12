@@ -51,6 +51,7 @@ function ProjectPage() {
             <p className="text-md">See Live</p>
             </motion.li>
           </motion.ul>
+        <motion.div className="flex gap-4 lg:flex-col justify-between">
 
           <motion.div className="mt-4">
               <h1 className="text-xl text-green-500 font-semibold">Deliverables</h1>
@@ -65,6 +66,7 @@ function ProjectPage() {
               </p>
             </motion.div>
 
+        </motion.div>
            
             </motion.div>
           </motion.div>
