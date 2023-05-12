@@ -18,7 +18,7 @@ function ProjectPreview({animateModal}: {animateModal: () => void}) {
   }
 
   window.onresize = () => {
-    controls.start({opacity:1, transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985]} })
+    resizeFullScreen();
   }
 
   const isPresentAnimation = useCallback(async () => {
