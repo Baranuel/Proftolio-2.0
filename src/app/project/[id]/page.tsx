@@ -36,7 +36,7 @@ function ProjectPage() {
           <hr className="my-6" />
           <motion.div>
             <Suspense fallback={<Skeleton />}>
-              <motion.div>
+              <motion.div className="relative h-[30vh] bg-gray-200 rounded-xl">
                 <Image
                   src="/grains.jpg"
                   alt="thumbnail"
