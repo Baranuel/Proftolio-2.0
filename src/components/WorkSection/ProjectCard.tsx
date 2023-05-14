@@ -11,7 +11,6 @@ interface Props {
   project: ProjectDto;
 }
 function ProjectCard({ color, variants, project }: Props) {
-  console.log(project);
   const [active, setActive] = React.useState(false);
   return (
     <motion.div

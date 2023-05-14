@@ -9,7 +9,6 @@ import ProjectPreview from "./(components)/ProjectPreview";
 import Skeleton from "./(components)/Skeleton";
 import { RiArrowGoBackLine } from "react-icons/ri";
 import colors from "../../colors";
-import Link from "next/link";
 
 const fetchData = async (url: string) => {
   try {
