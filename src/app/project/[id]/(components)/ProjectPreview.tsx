@@ -9,7 +9,13 @@ import React, { useCallback, useEffect } from "react";
 import { faExpand, faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function ProjectPreview({ animateModal }: { animateModal: () => void }) {
+function ProjectPreview({
+  animateModal,
+  liveDemo,
+}: {
+  animateModal: () => void;
+  liveDemo: string;
+}) {
   const [isPresent, safeToRemove] = usePresence();
   const [scope, animate] = useAnimate();
   const [scopeOptions, animateOptions] = useAnimate();
@@ -130,12 +136,13 @@ function ProjectPreview({ animateModal }: { animateModal: () => void }) {
         </motion.div>
 
         <motion.iframe
+          key={liveDemo}
           ref={scope}
           initial={{ width: 0, height: 0 }}
           className={`outline outline-1 outline-purple-200 ${
             !isFullScreen ? "rounded-b-md" : ""
           }`}
-          src="https://paluba.vercel.app/"
+          src={liveDemo}
           width="100%"
           height="100%"
           title="project preview"

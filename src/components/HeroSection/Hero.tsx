@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 
 import nameTag from "../../../public/samuel-baran.svg";
 

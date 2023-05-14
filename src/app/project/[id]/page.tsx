@@ -1,40 +1,62 @@
 "use client";
 import Image from "next/image";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { BiShowAlt } from "react-icons/bi";
-
+import useSWR from "swr";
 import ProjectPreview from "./(components)/ProjectPreview";
 import Skeleton from "./(components)/Skeleton";
+import { RiArrowGoBackLine } from "react-icons/ri";
+import colors from "../../colors";
+import Link from "next/link";
 
-function ProjectPage() {
+const fetchData = async (url: string) => {
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    // Handle error if fetch or parsing fails
+    console.error("Error fetching project:", error);
+  }
+};
+
+function ProjectPage({ params }: any) {
   const [visibleTest, setVisibleTest] = useState(false);
-
+  const { data: project, isLoading } = useSWR(
+    `/api/projects/${params.id}`,
+    fetchData
+  );
   const animateModal = async () => {
     setVisibleTest(!visibleTest);
   };
-
-  const deliverables = [
-    "Great UX",
-    "Comfortable Mobile browsing",
-    "Updatable CMS",
-    "Increase ease of navigation",
-    "Retain Customers on page longer",
-  ];
 
   return (
     <>
       <motion.div className="flex relative  w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-24 md:py-4">
         <motion.div className="w-screen grid grid-rows-2  mt-12 text-black  ">
           <div className="  flex items-center w-full justify-between gap-4">
-            <h1 className="text-6xl md:text-3xl font-inter font-bold text-green-500">
-              Paluba
+            <h1
+              className={`text-6xl md:text-3xl font-inter font-bold ${
+                colors.text[project?.color]
+              }`}
+            >
+              {project?.title}
             </h1>
             <button className="text-md font-inter">Next Project</button>
           </div>
-          <hr className="my-6" />
+          <hr className="my-6 md:my-3" />
           <motion.div>
+            <a
+              href="/#work"
+              className={`flex gap-2 my-2 items-center text-xl ${
+                colors.textHovered[project?.color]
+              } hover:cursor-pointer`}
+            >
+              <RiArrowGoBackLine />
+              <h1>Back to projects</h1>
+            </a>
             <Suspense fallback={<Skeleton />}>
               <motion.div className="relative h-[30vh] bg-gray-200 rounded-xl">
                 <Image
@@ -61,13 +83,17 @@ function ProjectPage() {
             </motion.ul>
             <motion.div className="flex gap-4 lg:flex-col justify-between">
               <motion.div className="mt-4">
-                <h1 className="text-xl text-green-500 font-semibold">
+                <h1
+                  className={`text-xl  ${
+                    colors.text[project?.color]
+                  }  font-semibold`}
+                >
                   Deliverables
                 </h1>
                 <ul className="mt-2">
-                  {deliverables.map((item, index) => (
+                  {project?.deliverables.map((item: string, index: any) => (
                     <li key={index} className="text-[#333] text-bold">
-                      {item}{" "}
+                      {item}
                     </li>
                   ))}
                 </ul>
@@ -79,7 +105,7 @@ function ProjectPage() {
                     Overview
                   </h1>
                   <p className="w-[75ch] md:w-full mt-2 text-justify">
-                    {`In my recent project, I developed a dynamic and interactive eCommerce website using React.js, showcasing its powerful capabilities for building user interfaces. With seamless navigation and an intuitive layout, the website provided users an engaging shopping experience. The project also entailed incorporating responsive design principles, ensuring the site's usability across a wide range of devices and screen sizes.`}
+                    {project?.description}
                   </p>
                 </motion.div>
               </motion.div>
@@ -90,7 +116,12 @@ function ProjectPage() {
       </motion.div>
 
       <AnimatePresence>
-        {visibleTest && <ProjectPreview animateModal={animateModal} />}
+        {visibleTest && (
+          <ProjectPreview
+            animateModal={animateModal}
+            liveDemo={project.liveDemo}
+          />
+        )}
       </AnimatePresence>
     </>
   );
