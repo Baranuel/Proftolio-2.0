@@ -4,34 +4,14 @@ import React, { useEffect } from "react";
 import ProjectCard from "./ProjectCard";
 import { useInView } from "react-intersection-observer";
 import { appear, appearWork, showProject } from "../../app/animations";
-import { ProjectDto } from "../../types/ProjectDto";
-import useSWR from "swr";
 
-const getProjects = async (url: string) => {
-  const res = await fetch(url, { cache: "no-store" });
-  const projects = await res.json();
-  return projects;
-};
+import ProjectsList from "./ProjectsList";
 
 function Work() {
   const controls = useAnimation();
   const { ref, inView } = useInView({
     threshold: 0.25,
   });
-  const { data: projects } = useSWR<ProjectDto[]>("/api/projects", getProjects);
-
-  const renderProjects = () => {
-    if (!projects) return "...loading";
-
-    return projects.map((project) => (
-      <ProjectCard
-        key={project._id + "project"}
-        variants={showProject}
-        project={project}
-        color={project.color}
-      />
-    ));
-  };
 
   useEffect(() => {
     if (inView) {
@@ -56,7 +36,7 @@ function Work() {
         animate={controls}
         className="w-full flex h-full xl:justify-center flex-wrap gap-4 mt-12"
       >
-        {renderProjects()}
+        <ProjectsList />
       </motion.div>
     </div>
   );
