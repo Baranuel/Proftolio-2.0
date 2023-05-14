@@ -9,7 +9,7 @@ import { ProjectDto } from "../../types/ProjectDto";
 import useSWR from "swr";
 
 const getProjects = async (url: string) => {
-  const res = await fetch("/api/projects");
+  const res = await fetch("/api/projects", { next: { revalidate: 10 } });
   const projects = await res.json();
   return projects;
 };
