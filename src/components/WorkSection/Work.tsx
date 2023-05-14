@@ -4,12 +4,11 @@ import React, { useEffect } from "react";
 import ProjectCard from "./ProjectCard";
 import { useInView } from "react-intersection-observer";
 import { appear, appearWork, showProject } from "../../app/animations";
-import colors from "../../app/colors";
 import { ProjectDto } from "../../types/ProjectDto";
 import useSWR from "swr";
 
 const getProjects = async (url: string) => {
-  const res = await fetch("/api/projects", { cache: "no-store" });
+  const res = await fetch(url, { cache: "no-store" });
   const projects = await res.json();
   return projects;
 };
