@@ -118,6 +118,8 @@ function ProjectPage({ params }: any) {
                   {isLoading && (
                     <motion.div className="flex flex-col gap-2">
                       <SkeletonTextLong />
+                      <SkeletonTextLong />
+                      <SkeletonText />
                     </motion.div>
                   )}
 
