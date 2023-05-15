@@ -38,8 +38,17 @@ function ProjectPage({ params }: any) {
 
   return (
     <>
-      <motion.div className="flex relative  w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-24 md:py-4">
-        <motion.div className="w-screen grid grid-rows-2  mt-12 text-black  ">
+      <motion.div className="flex relative  w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-4 py-24 md:py-4">
+        <motion.div className="w-screen grid grid-rows-2  mt-4 text-black  ">
+          <a
+            href="/#work"
+            className={`flex gap-1  items-center text-lg  mb-4 ${
+              colors.textHovered[project?.color ?? "purple"]
+            } hover:cursor-pointer`}
+          >
+            <RiArrowGoBackLine />
+            <h1>Back</h1>
+          </a>
           <div className="  flex items-center w-full justify-between gap-4">
             {isLoading && <Skeleton />}
             <h1
@@ -53,15 +62,6 @@ function ProjectPage({ params }: any) {
           </div>
           <hr className="my-6 md:my-3" />
           <motion.div>
-            <a
-              href="/#work"
-              className={`flex gap-2 my-2 items-center text-lg ${
-                colors.textHovered[project?.color ?? "purple"]
-              } hover:cursor-pointer`}
-            >
-              <RiArrowGoBackLine />
-              <h1>Back to projects</h1>
-            </a>
             <motion.div className="relative h-[30vh] bg-gray-200 rounded-xl">
               {!isLoading && (
                 <Image
@@ -98,11 +98,7 @@ function ProjectPage({ params }: any) {
             </motion.ul>
             <motion.div className="flex gap-4 lg:flex-col justify-between">
               <motion.div className="mt-4">
-                <h1
-                  className={`text-xl  ${
-                    colors.text[project?.color ?? "purple"]
-                  }  font-semibold`}
-                >
+                <h1 className={`text-xl text-[#333] font-semibold`}>
                   Deliverables
                 </h1>
                 {isLoading && (
