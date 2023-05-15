@@ -1,7 +1,7 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, animate, useAnimation } from "framer-motion";
+import { motion, animate, useAnimation, usePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const item = {
@@ -22,6 +22,7 @@ const appear = {
 function ToolsGrid() {
   const jsIconRef = useRef<HTMLDivElement>(null!);
   const tsIconRef = useRef<HTMLDivElement>(null!);
+  const [isPresent, safeToRemove] = usePresence();
   const { ref, inView } = useInView({
     threshold: 0.5,
   });
@@ -30,6 +31,7 @@ function ToolsGrid() {
   const jsControls = useAnimation();
 
   const typescriptAnimation = useCallback(async () => {
+    if (!isPresent) return;
     await controls.start("show");
     jsControls.start({ x: "0%" }, { delay: 0.05 });
     await tsControls.start({ x: "0%" });
@@ -38,32 +40,38 @@ function ToolsGrid() {
       x: "25%",
       transition: { ease: "easeOut", duration: 0.2 },
     });
+
     tsControls.start({ x: "-50%" });
     jsControls.start({
       x: "-250%",
       rotateZ: -90,
       transition: { duration: 0.5 },
     });
-  }, [controls, jsControls, tsControls]);
+  }, [controls, isPresent, jsControls, tsControls]);
 
   useEffect(() => {
-    if (inView) {
+    if (inView && isPresent) {
       typescriptAnimation();
     } else {
+      if (!isPresent) return;
       jsControls.start({
         x: "50%",
         rotateZ: 0,
       });
       tsControls.start({ x: "250%" });
     }
-  }, [controls, inView, jsControls, tsControls, typescriptAnimation]);
+  }, [
+    controls,
+    inView,
+    isPresent,
+    jsControls,
+    tsControls,
+    typescriptAnimation,
+  ]);
 
   return (
     <motion.div className="flex-col flex w-full ">
-      <h1
-        onClick={() => typescriptAnimation()}
-        className="text-4xl z-50 mb-8 py-2 font-bold text-transparent hidden self-center  lg:block bg-clip-text bg-gradient-to-r  from-lightBlue via-lightPink to-darkPurple "
-      >
+      <h1 className="text-4xl z-50 mb-8 py-2 font-bold text-transparent hidden self-center  lg:block bg-clip-text bg-gradient-to-r  from-lightBlue via-lightPink to-darkPurple ">
         My Toolbelt
       </h1>
 

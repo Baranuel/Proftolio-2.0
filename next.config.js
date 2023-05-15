@@ -15,6 +15,16 @@ const nextConfig = {
       ],
     },
   ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "iili.io",
+        port: "",
+        pathname: "/*",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

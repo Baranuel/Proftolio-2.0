@@ -12,4 +12,5 @@ export interface ProjectDto {
   title: string;
   type: string;
   color: string;
+  thumbnail: string;
 }

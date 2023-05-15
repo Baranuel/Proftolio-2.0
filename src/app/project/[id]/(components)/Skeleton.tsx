@@ -1,9 +1,19 @@
 import React from "react";
 
-function Skeleton() {
+export function Skeleton() {
   return (
-    <div className="relative h-[30vh] animate-pulse bg-gray-800 rounded-xl"></div>
+    <h1 className=" h-[25px] w-[250px] animate-pulse bg-gray-300 rounded-xl"></h1>
   );
 }
 
-export default Skeleton;
+export function SkeletonText() {
+  return (
+    <p className=" h-[15px] w-[200px] animate-pulse bg-gray-300 rounded-xl"></p>
+  );
+}
+
+export function SkeletonTextLong() {
+  return (
+    <p className=" h-[15px] w-[100%] animate-pulse bg-gray-300 rounded-xl"></p>
+  );
+}

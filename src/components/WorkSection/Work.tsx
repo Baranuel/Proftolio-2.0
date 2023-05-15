@@ -16,8 +16,6 @@ function Work() {
   useEffect(() => {
     if (inView) {
       controls.start("show");
-    } else {
-      controls.start("hidden");
     }
   }, [controls, inView]);
 

@@ -10,10 +10,10 @@ import { faExpand, faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function ProjectPreview({
-  animateModal,
+  closeModal,
   liveDemo,
 }: {
-  animateModal: () => void;
+  closeModal: () => void;
   liveDemo: string;
 }) {
   const [isPresent, safeToRemove] = usePresence();
@@ -125,7 +125,7 @@ function ProjectPreview({
         >
           <FontAwesomeIcon
             icon={faClose}
-            onClick={() => animateModal()}
+            onClick={() => closeModal()}
             className=" text-black text-2xl hover:cursor-pointer"
           />
           <FontAwesomeIcon
