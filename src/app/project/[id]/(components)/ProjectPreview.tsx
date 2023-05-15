@@ -30,11 +30,13 @@ function ProjectPreview({
       transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985] },
     });
   }, [controls, isFullScreen, isPresent]);
+  const [loaded, setLoaded] = React.useState(false);
 
   const isPresentAnimation = useCallback(async () => {
     await animate(scope.current, {
       display: "block",
       width: "100%",
+
       transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985] },
     });
     await animate(scope.current, {
@@ -139,7 +141,9 @@ function ProjectPreview({
           key={liveDemo}
           ref={scope}
           initial={{ width: 0, height: 0 }}
-          className={`outline outline-1 outline-purple-200 ${
+          className={`outline ${
+            !loaded && "bg-black animate-pulse"
+          } outline-1 outline-purple-200 ${
             !isFullScreen ? "rounded-b-md" : ""
           }`}
           src={liveDemo}
@@ -147,6 +151,7 @@ function ProjectPreview({
           height="100%"
           title="project preview"
           loading="eager"
+          onLoad={() => setLoaded(true)}
         ></motion.iframe>
       </motion.div>
     </motion.div>

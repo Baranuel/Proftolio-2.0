@@ -49,13 +49,13 @@ function ProjectPage({ params }: any) {
             >
               {project?.title}
             </h1>
-            <button className="text-md font-inter">Next Project</button>
+            <button className="text-lg font-inter">Next Project</button>
           </div>
           <hr className="my-6 md:my-3" />
           <motion.div>
             <a
               href="/#work"
-              className={`flex gap-2 my-2 items-center text-xl ${
+              className={`flex gap-2 my-2 items-center text-lg ${
                 colors.textHovered[project?.color ?? "purple"]
               } hover:cursor-pointer`}
             >
@@ -63,22 +63,34 @@ function ProjectPage({ params }: any) {
               <h1>Back to projects</h1>
             </a>
             <motion.div className="relative h-[30vh] bg-gray-200 rounded-xl">
-              <Image
-                src={project?.thumbnail ?? ""}
-                alt="thumbnail"
-                fill
-                className="rounded-xl object-cover"
-              />
+              {!isLoading && (
+                <Image
+                  src={project?.thumbnail ?? ""}
+                  alt="thumbnail"
+                  fill
+                  className="rounded-xl object-cover"
+                />
+              )}
             </motion.div>
 
             <motion.ul className="flex my-4 gap-2">
-              <motion.li className=" min-w-[120px] flex justify-center items-center gap-1 text-purple-800 hover:cursor-pointer outline outline-1 outline-purple-800 p-2 rounded-md">
+              <motion.li
+                className={` min-w-[120px] flex justify-center items-center gap-1 ${
+                  colors.text[project?.color ?? ""]
+                } hover:cursor-pointer outline outline-1 ${
+                  colors.outline[project?.color ?? ""]
+                } p-2 rounded-md`}
+              >
                 <AiFillGithub className="text-2xl" />
                 <p className="text-md">Github</p>
               </motion.li>
               <motion.li
                 onClick={() => animateModal()}
-                className=" min-w-[120px] flex justify-center  items-center gap-1 bg-purple-800 text-white hover:cursor-pointer outline outline-1 outline-purple-800 p-2 rounded-md"
+                className={` min-w-[120px] flex justify-center  items-center gap-1 ${
+                  colors.bgFull[project?.color ?? ""]
+                } text-white hover:cursor-pointer outline outline-1 ${
+                  colors.outline[project?.color ?? ""]
+                } p-2 rounded-md`}
               >
                 <BiShowAlt className="text-2xl" />
                 <p className="text-md">See Live</p>
@@ -138,7 +150,7 @@ function ProjectPage({ params }: any) {
         {visibleTest && (
           <ProjectPreview
             closeModal={closeModal}
-            liveDemo={project?.liveDemo ?? ""}
+            liveDemo={project?.liveDemo ?? "www.google.com"}
           />
         )}
       </AnimatePresence>
