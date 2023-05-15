@@ -6,7 +6,7 @@ import ProjectCard from "./ProjectCard";
 
 function ProjectsList() {
   const getProjects = async (url: string) => {
-    const res = await fetch(url, { cache: "no-store" });
+    const res = await fetch(url, { next: { revalidate: 10 } });
     const projects = await res.json();
     return projects;
   };
