@@ -6,7 +6,7 @@ import { BASE_URL } from "../helpers";
 
 const getProjects = async () => {
   const res = await fetch(BASE_URL + "/api/projects", {
-    cache: "no-store",
+    next: { revalidate: 60 },
   });
   const projects = await res.json();
   return projects;

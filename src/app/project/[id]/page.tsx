@@ -5,7 +5,7 @@ import TriggerPreview from "./(components)/TriggerPreview";
 import { BASE_URL } from "../../../helpers";
 
 const getData = async (url: string) => {
-  const res = await fetch(url, { cache: "no-store" });
+  const res = await fetch(url, { next: { revalidate: 60 } });
   return res.json();
 };
 async function ProjectPage({ params }: any) {
