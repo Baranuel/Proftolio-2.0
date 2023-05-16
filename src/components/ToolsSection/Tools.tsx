@@ -49,7 +49,7 @@ function Tools() {
           </div>
         </div>
       </div>
-      <div className="w-1/2 max:w-2/4 2xl:w-2/4 xl:w-3/5 lg:w-3/4 sm:w-full h-fit max:h-full flex justify-center items-center rounded-full relative z-50">
+      <div className=" max-w-[700px] max:max-w-[unset] w-1/2 max:w-2/4 2xl:w-2/4 xl:w-3/5 lg:w-3/4 sm:w-full h-fit max:h-full flex justify-center items-center rounded-full relative z-50">
         <ToolsGrid />
         <div className="absolute w-full h-full blur-2xl bg-hazyPink z-1"></div>
       </div>

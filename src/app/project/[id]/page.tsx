@@ -37,7 +37,7 @@ async function ProjectPage({ params }: any) {
           </div>
           <hr className="my-6 md:my-3" />
           <div>
-            <div className="relative h-[30vh] bg-gray-200 rounded-xl">
+            <div className="relative h-[30vh] md:h-[20vh] min-h-[175px] bg-gray-200 rounded-xl">
               {
                 <Image
                   src={project?.thumbnail ?? ""}
