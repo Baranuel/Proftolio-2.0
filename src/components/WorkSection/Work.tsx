@@ -6,8 +6,9 @@ import { useInView } from "react-intersection-observer";
 import { appear, appearWork, showProject } from "../../app/animations";
 
 import ProjectsList from "./ProjectsList";
+import { ProjectDto } from "../../types/ProjectDto";
 
-function Work() {
+function Work({ projects }: { projects: ProjectDto[] }) {
   const controls = useAnimation();
   const { ref, inView } = useInView({
     threshold: 0.25,
@@ -34,7 +35,7 @@ function Work() {
         animate={controls}
         className="w-full flex h-full xl:justify-center flex-wrap gap-4 mt-12"
       >
-        <ProjectsList />
+        <ProjectsList projects={projects} />
       </motion.div>
     </div>
   );

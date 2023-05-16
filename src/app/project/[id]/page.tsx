@@ -1,45 +1,24 @@
-"use client";
 import Image from "next/image";
-import { AnimatePresence, motion, useAnimation } from "framer-motion";
-import React, { Suspense, useEffect, useState } from "react";
-import { AiFillGithub } from "react-icons/ai";
-import { BiShowAlt } from "react-icons/bi";
-import useSWR from "swr";
+
 import ProjectPreview from "./(components)/ProjectPreview";
-import {
-  Skeleton,
-  SkeletonText,
-  SkeletonTextLong,
-} from "./(components)/Skeleton";
+
 import { RiArrowGoBackLine } from "react-icons/ri";
 import colors from "../../colors";
-import { ProjectDto } from "../../../types/ProjectDto";
+import TriggerPreview from "./(components)/TriggerPreview";
 
-function ProjectPage({ params }: any) {
-  const getData = async (url: string) => {
-    const res = await fetch(url);
-    return res.json();
-  };
-
-  const { data: project, isLoading } = useSWR<ProjectDto>(
-    `/api/projects/${params.id}`,
-    getData
+const getData = async (url: string) => {
+  const res = await fetch(url);
+  return res.json();
+};
+async function ProjectPage({ params }: any) {
+  const project = await getData(
+    `http://localhost:3000/api/projects/${params.id}`
   );
-
-  const [visibleTest, setVisibleTest] = useState(false);
-
-  const animateModal = async () => {
-    setVisibleTest(true);
-  };
-
-  const closeModal = () => {
-    setVisibleTest(false);
-  };
 
   return (
     <>
-      <motion.div className="flex relative  w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-4 py-24 md:py-4">
-        <motion.div className="w-screen grid grid-rows-2  mt-4 text-black  ">
+      <div className="flex relative  w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-4 py-24 md:py-4">
+        <div className="w-screen grid grid-rows-2  mt-4 text-black  ">
           <a
             href="/#work"
             className={`flex gap-1  items-center text-lg  mb-4 ${
@@ -50,7 +29,7 @@ function ProjectPage({ params }: any) {
             <h1>Back</h1>
           </a>
           <div className="  flex items-center w-full justify-between gap-4">
-            {isLoading && <Skeleton />}
+            {/* {isLoading && <Skeleton />} */}
             <h1
               className={`text-6xl md:text-3xl font-inter font-bold ${
                 colors.text[project?.color ?? "purple"]
@@ -61,54 +40,31 @@ function ProjectPage({ params }: any) {
             <button className="text-lg font-inter">Next Project</button>
           </div>
           <hr className="my-6 md:my-3" />
-          <motion.div>
-            <motion.div className="relative h-[30vh] bg-gray-200 rounded-xl">
-              {!isLoading && (
+          <div>
+            <div className="relative h-[30vh] bg-gray-200 rounded-xl">
+              {
                 <Image
                   src={project?.thumbnail ?? ""}
                   alt="thumbnail"
                   fill
                   className="rounded-xl object-cover"
                 />
-              )}
-            </motion.div>
-
-            <motion.ul className="flex my-4 gap-2">
-              <motion.li
-                className={` min-w-[120px] flex justify-center items-center gap-1 ${
-                  colors.text[project?.color ?? ""]
-                } hover:cursor-pointer outline outline-1 ${
-                  colors.outline[project?.color ?? ""]
-                } p-2 rounded-md`}
-              >
-                <AiFillGithub className="text-2xl" />
-                <p className="text-md">Github</p>
-              </motion.li>
-              <motion.li
-                onClick={() => animateModal()}
-                className={` min-w-[120px] flex justify-center  items-center gap-1 ${
-                  colors.bgFull[project?.color ?? ""]
-                } text-white hover:cursor-pointer outline outline-1 ${
-                  colors.outline[project?.color ?? ""]
-                } p-2 rounded-md`}
-              >
-                <BiShowAlt className="text-2xl" />
-                <p className="text-md">See Live</p>
-              </motion.li>
-            </motion.ul>
-            <motion.div className="flex gap-4 lg:flex-col justify-between">
-              <motion.div className="mt-4">
+              }
+            </div>
+            <TriggerPreview project={project} />
+            <div className="flex gap-4 lg:flex-col justify-between">
+              <div className="mt-4">
                 <h1 className={`text-xl text-[#333] font-semibold`}>
                   Deliverables
                 </h1>
-                {isLoading && (
-                  <motion.div className="flex flex-col gap-2">
+                {/* {isLoading && (
+                  <div className="flex flex-col gap-2">
                     <SkeletonText />
                     <SkeletonText />
                     <SkeletonText />
                     <SkeletonText />
-                  </motion.div>
-                )}
+                  </div>
+                )} */}
                 <ul className="mt-2">
                   {project?.deliverables.map((item: string, index: any) => (
                     <li key={index} className="text-[#333] text-bold">
@@ -116,40 +72,31 @@ function ProjectPage({ params }: any) {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
 
-              <motion.div className="  flex md:flex-col gap-6 justify-between">
-                <motion.div className="mt-4">
+              <div className="  flex md:flex-col gap-6 justify-between">
+                <div className="mt-4">
                   <h1 className="text-xl text-[#333] font-semibold">
                     Overview
                   </h1>
-                  {isLoading && (
-                    <motion.div className="flex flex-col gap-2">
+                  {/* {isLoading && (
+                    <div className="flex flex-col gap-2">
                       <SkeletonTextLong />
                       <SkeletonTextLong />
                       <SkeletonText />
-                    </motion.div>
-                  )}
+                    </div>
+                  )} */}
 
                   <p className="w-[75ch] md:w-full mt-2 text-justify">
                     {project?.description}
                   </p>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-          <motion.div className="mt-12"></motion.div>
-        </motion.div>
-      </motion.div>
-
-      <AnimatePresence>
-        {visibleTest && (
-          <ProjectPreview
-            closeModal={closeModal}
-            liveDemo={project?.liveDemo ?? "www.google.com"}
-          />
-        )}
-      </AnimatePresence>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-12"></div>
+        </div>
+      </div>
     </>
   );
 }

@@ -4,15 +4,7 @@ import { showProject } from "../../app/animations";
 import { ProjectDto } from "../../types/ProjectDto";
 import ProjectCard from "./ProjectCard";
 
-function ProjectsList() {
-  const getProjects = async (url: string) => {
-    const res = await fetch(url, { cache: "no-store" });
-    const projects = await res.json();
-    return projects;
-  };
-
-  const { data: projects } = useSWR<ProjectDto[]>("/api/projects", getProjects);
-
+function ProjectsList({ projects }: { projects: ProjectDto[] }) {
   return (
     <>
       {projects?.map((project) => (
