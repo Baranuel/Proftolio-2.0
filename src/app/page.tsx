@@ -2,15 +2,19 @@ import Hero from "../components/HeroSection/Hero";
 import Tools from "../components/ToolsSection/Tools";
 import Work from "@/components/WorkSection/Work";
 import About from "../components/AboutSection/About";
+import { BASE_URL } from "../helpers";
 
-const getProjects = async (url: string) => {
-  const res = await fetch(url, { cache: "no-store" });
+const getProjects = async () => {
+  const res = await fetch(BASE_URL + "/api/projects", {
+    cache: "no-store",
+  });
   const projects = await res.json();
   return projects;
 };
 
 export default async function Home() {
-  const projects = await getProjects("http://localhost:3000/api/projects");
+  console.log(BASE_URL);
+  const projects = await getProjects();
 
   return (
     <>

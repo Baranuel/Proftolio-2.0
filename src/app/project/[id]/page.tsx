@@ -1,19 +1,15 @@
 import Image from "next/image";
-
-import ProjectPreview from "./(components)/ProjectPreview";
-
 import { RiArrowGoBackLine } from "react-icons/ri";
 import colors from "../../colors";
 import TriggerPreview from "./(components)/TriggerPreview";
+import { BASE_URL } from "../../../helpers";
 
 const getData = async (url: string) => {
   const res = await fetch(url);
   return res.json();
 };
 async function ProjectPage({ params }: any) {
-  const project = await getData(
-    `http://localhost:3000/api/projects/${params.id}`
-  );
+  const project = await getData(BASE_URL + `/api/projects/${params.id}`);
 
   return (
     <>
