@@ -3,6 +3,7 @@ import { RiArrowGoBackLine } from "react-icons/ri";
 import colors from "../../colors";
 import TriggerPreview from "./(components)/TriggerPreview";
 import { BASE_URL } from "../../../helpers";
+import Carousel from "./(components)/Carousel";
 
 const getData = async (url: string) => {
   const res = await fetch(url, { next: { revalidate: 60 } });
@@ -13,7 +14,7 @@ async function ProjectPage({ params }: any) {
 
   return (
     <>
-      <div className="flex relative  w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-4 py-24 md:py-4">
+      <div className="flex relative w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-4 py-24 md:py-4">
         <div className="w-screen grid grid-rows-2  mt-4 text-black  ">
           <a
             href="/#work"
@@ -48,9 +49,9 @@ async function ProjectPage({ params }: any) {
               }
             </div>
             <TriggerPreview project={project} />
-            <div className="flex gap-4 lg:flex-col justify-between">
+            <div className="flex gap-4 xl:flex-col justify-between">
               <div className="mt-4">
-                <h1 className={`text-xl text-[#333] font-semibold`}>
+                <h1 className={`text-lg text-[#333] font-semibold`}>
                   Deliverables
                 </h1>
                 {/* {isLoading && (
@@ -61,18 +62,15 @@ async function ProjectPage({ params }: any) {
                     <SkeletonText />
                   </div>
                 )} */}
-                <ul className="mt-2">
-                  {project?.deliverables.map((item: string, index: any) => (
-                    <li key={index} className="text-[#333] text-bold">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <Carousel
+                  color={project?.color}
+                  items={project?.deliverables}
+                />
               </div>
 
               <div className="  flex md:flex-col gap-6 justify-between">
                 <div className="mt-4">
-                  <h1 className="text-xl text-[#333] font-semibold">
+                  <h1 className="text-lg text-[#333] font-semibold">
                     Overview
                   </h1>
                   {/* {isLoading && (
@@ -83,7 +81,7 @@ async function ProjectPage({ params }: any) {
                     </div>
                   )} */}
 
-                  <p className="w-[75ch] md:w-full mt-2 text-justify">
+                  <p className="w-[75ch] md:w-full mt-2 text-justify text-sm">
                     {project?.description}
                   </p>
                 </div>

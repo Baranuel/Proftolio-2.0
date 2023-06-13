@@ -13,7 +13,6 @@ const getProjects = async () => {
 };
 
 export default async function Home() {
-  console.log(BASE_URL);
   const projects = await getProjects();
 
   return (

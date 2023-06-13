@@ -40,7 +40,7 @@ function ProjectCard({ color, variants, project }: Props) {
             {project.type}
           </span>
         </div>
-        <div className="flex flex-wrap gap-1 mt-3 md:mt-1 font-light max:text-xl text-md  text-slate-400">
+        <div className="flex flex-wrap gap-1 mt-3 md:mt-1 font-light max:text-xl sm:text-sm text-md  text-slate-400">
           {project.technologies.map((tech, index) => (
             <span key={index}>{tech}</span>
           ))}

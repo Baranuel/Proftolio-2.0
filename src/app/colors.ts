@@ -31,6 +31,14 @@ const colors: any = {
     amber: "outline-amber-500/50",
     slate: "outline-slate-500/50",
   },
+  border: {
+    green: "border-green-500/50",
+    red: "border-red-500/50",
+    purple: "border-purple-500/50",
+    teal: "border-teal-500/50",
+    amber: "border-amber-500/50",
+    slate: "border-slate-500/50",
+  },
   bg: {
     green: "bg-green-500/20",
     red: "bg-red-500/20",

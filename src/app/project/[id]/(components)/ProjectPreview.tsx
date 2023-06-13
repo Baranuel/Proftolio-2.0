@@ -92,10 +92,10 @@ function ProjectPreview({
             opacity: 1,
             transition: { duration: 0.35, ease: [0.06, 0.975, 0.195, 0.985] },
           }}
-          className="w-screen h-screen bg-[#333]/50"
+          className=" z-50 w-screen h-screen bg-[#333]/50"
         >
           <motion.div
-            className=""
+            className="z-50"
             initial={{
               position: "fixed",
               left: "50%",
@@ -108,6 +108,7 @@ function ProjectPreview({
               flexDirection: "column",
               width: "95vw",
               height: "85vh",
+              zIndex: 99,
             }}
             animate={
               isFullScreen
