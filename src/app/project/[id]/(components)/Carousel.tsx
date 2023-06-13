@@ -7,11 +7,12 @@ import colors from "../../../colors";
 
 function Carousel({ items, color }: { items: any[]; color: string }) {
   return (
-    <div className="relative z-0 sm:w-[90vw] w-auto min-w-[350px]">
+    <div className="relative z-0 sm:w-[90vw] w-auto ">
       <Splide
         style={{
           width: "100%",
           padding: "0.5rem 0 ",
+          borderRight: "1px solid #e2e8f0",
         }}
         options={{
           drag: true,

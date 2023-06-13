@@ -14,7 +14,7 @@ async function ProjectPage({ params }: any) {
 
   return (
     <>
-      <div className="flex relative w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-4 py-24 md:py-4">
+      <div className="flex relative   w-screen px-48 2xl:px-24 xl:px-12 lg:px-12 sm:px-4 py-24 md:py-4">
         <div className="w-screen grid grid-rows-2  mt-4 text-black  ">
           <a
             href="/#work"

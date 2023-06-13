@@ -26,7 +26,7 @@ function ProjectCard({ color, variants, project }: Props) {
     >
       <Link
         href={`project/${project._id}`}
-        className="self-center p-8  lg:p-6 h-full w-full bg-transparent  flex flex-col relative z-50"
+        className="self-center p-8  lg:p-6 h-full w-full bg-white flex flex-col relative z-50"
       >
         <div className="flex items-center justify-between">
           <h1
