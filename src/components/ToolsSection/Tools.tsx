@@ -4,13 +4,13 @@ import ToolsGrid from "./ToolsGrid";
 
 function Tools() {
   return (
-    <div className="min-h-screen w-screen justify-between xl:justify-center items-center flex lg:flex-col-reverse px-48 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-24 gap-8">
+    <div className="min-h-screen w-screen justify-between xl:justify-center items-center flex lg:flex-col-reverse px-48 2xl:px-24 xl:px-12 lg:px-12 sm:px-2 py-24 gap-8">
       <div className="w-1/3 2xl:w-2/5 lg:w-3/4 md:w-full h-fit max-h-fit flex flex-col justify-between">
         <div>
           <h1 className="text-5xl max:text-7xl py-2 font-bold text-transparent lg:hidden bg-clip-text bg-gradient-to-r from-lightBlue via-lightPink to-darkPurple self-start">
             My Toolbelt
           </h1>
-          <p className="text-xl max:text-2xl lg:text-xl md:text-lg mt-6 text-zinc-500 font-quicksand text-justify">
+          <p className="text-xl max:text-2xl lg:text-xl md:text-lg mt-6 p-2 text-zinc-500 font-quicksand text-justify">
             These are tools that{" "}
             <span className="font-semibold text-lightPink">
               {" "}
@@ -20,7 +20,7 @@ function Tools() {
             testing functionality and tracking changes, each tool plays a
             crucial role in the development process.
           </p>
-          <p className="text-xl lg:text-xl md:text-lg max:text-2xl mt-6 text-zinc-500 font-quicksand text-justify">
+          <p className="text-xl lg:text-xl md:text-lg max:text-2xl p-2 mt-6 text-zinc-500 font-quicksand text-justify">
             As a{" "}
             <span className="font-semibold text-lightPink">
               {" "}
@@ -30,7 +30,7 @@ function Tools() {
             applications a breeze.
           </p>
         </div>
-        <div className="mt-6 w-full flex flex-col sm:flex-row sm:justify-between sm:items-center border-t pt-6 sm:pt-2">
+        <div className="mt-6 w-full flex flex-col sm:flex-row sm:justify-between sm:items-center border-t p-2 pt-6 sm:pt-2">
           <h3 className="text-2xl font-bold text-zinc-700 self-start sm:self-center">
             Find out more
           </h3>

@@ -9,8 +9,8 @@ import {
 function loading() {
   return (
     <>
-      <div className="flex relative  w-screen px-64 2xl:px-24 xl:px-12 lg:px-12 sm:px-4 py-24 md:py-4">
-        <div className="w-screen grid grid-rows-2  mt-4 text-black  ">
+      <div className="flex relative w-full px-80  2xl:px-24 xl:px-12 lg:px-12 sm:px-4 py-24 md:py-4">
+        <div className="w-3/4 lg:w-full mx-auto  mt-4 text-black  ">
           <a
             href="/#work"
             className={`flex gap-1  items-center text-lg  mb-4  hover:cursor-pointer`}

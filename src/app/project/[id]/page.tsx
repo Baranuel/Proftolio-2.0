@@ -14,8 +14,8 @@ async function ProjectPage({ params }: any) {
 
   return (
     <>
-      <div className="flex relative   w-screen px-48 2xl:px-24 xl:px-12 lg:px-12 sm:px-4 py-24 md:py-4">
-        <div className="w-screen grid grid-rows-2  mt-4 text-black  ">
+      <div className="flex relative  w-full px-80 2xl:px-24 xl:px-12 lg:px-12 sm:px-2 py-24 md:py-4">
+        <div className="w-3/4 lg:w-full mx-auto   mt-4 text-black  ">
           <a
             href="/#work"
             className={`flex gap-1  items-center text-lg  mb-4 ${
@@ -37,8 +37,8 @@ async function ProjectPage({ params }: any) {
             <button className="text-lg font-inter">Next Project</button>
           </div>
           <hr className="my-6 md:my-3" />
-          <div>
-            <div className="relative h-[30vh] md:h-[20vh] min-h-[175px] bg-gray-200 rounded-xl">
+          <div className="">
+            <div className="relative max-h-[270px] h-[30vh] md:h-[20vh] min-h-[175px] bg-gray-200 rounded-xl">
               {
                 <Image
                   src={project?.thumbnail ?? ""}
@@ -49,7 +49,7 @@ async function ProjectPage({ params }: any) {
               }
             </div>
             <TriggerPreview project={project} />
-            <div className="flex gap-4 xl:flex-col justify-between">
+            <div className="flex gap-4 flex-col justify-between">
               <div className="mt-4">
                 <h1 className={`text-lg text-[#333] font-semibold`}>
                   Deliverables
@@ -68,7 +68,7 @@ async function ProjectPage({ params }: any) {
                 />
               </div>
 
-              <div className="  flex md:flex-col gap-6 justify-between">
+              <div className=" flex-col gap-6 justify-between">
                 <div className="mt-4">
                   <h1 className="text-lg text-[#333] font-semibold">
                     Overview
@@ -81,7 +81,7 @@ async function ProjectPage({ params }: any) {
                     </div>
                   )} */}
 
-                  <p className="w-[75ch] md:w-full mt-2 text-justify text-sm">
+                  <p className="w-4/5 md:w-full mt-2 text-justify text-md sm:text-sm">
                     {project?.description}
                   </p>
                 </div>
