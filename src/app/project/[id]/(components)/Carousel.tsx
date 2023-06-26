@@ -32,7 +32,7 @@ function Carousel({ items, color }: { items: any[]; color: string }) {
               key={index}
             >
               <p
-                className={`sm:text-xs text-sm p-2 text-center ${colors.text[color]}`}
+                className={`sm:text-sm text-sm p-1 text-center ${colors.text[color]}`}
               >
                 {item}
               </p>

@@ -6,6 +6,7 @@ const colors: any = {
     teal: "shadow-teal-500",
     amber: "shadow-amber-500",
     slate: "shadow-slate-500",
+    blue: "shadow-blue-500",
   },
   text: {
     green: "text-green-500",
@@ -14,6 +15,7 @@ const colors: any = {
     teal: "text-teal-500",
     amber: "text-amber-500",
     slate: "text-slate-500",
+    blue: "text-blue-500",
   },
   textHovered: {
     green: "hover:text-green-500",
@@ -22,6 +24,7 @@ const colors: any = {
     teal: "hover:text-teal-500",
     amber: "hover:text-amber-500",
     slate: "hover:text-slate-500",
+    blue: "hover:text-blue-500",
   },
   outline: {
     green: "outline-green-500/50",
@@ -30,6 +33,7 @@ const colors: any = {
     teal: "outline-teal-500/50",
     amber: "outline-amber-500/50",
     slate: "outline-slate-500/50",
+    blue: "outline-blue-500/50",
   },
   border: {
     green: "border-green-500/50",
@@ -38,10 +42,12 @@ const colors: any = {
     teal: "border-teal-500/50",
     amber: "border-amber-500/50",
     slate: "border-slate-500/50",
+    blue: "border-blue-500/50",
   },
   bg: {
     green: "bg-green-500/20",
     red: "bg-red-500/20",
+    blue: "bg-blue-500/20",
     purple: "bg-purple-500/20",
     teal: "bg-teal-500/20",
     amber: "bg-amber-500/20",
@@ -54,6 +60,7 @@ const colors: any = {
     teal: "bg-teal-500",
     amber: "bg-amber-500",
     slate: "bg-slate-500",
+    blue: "bg-blue-500",
   },
 };
 
