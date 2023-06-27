@@ -26,7 +26,7 @@ function PassionCard({
 
 
   return (
-    <div className=" flex items-center relative  h-[400px] max-w-[500px] w-2/5  lg:w-3/5 md:w-4/5 sm:w-full  rounded-lg z-50 bg-white border border-1 border-purple-200">
+    <div className=" flex items-center  h-fit max-w-[500px] w-2/5  lg:w-3/5 md:w-4/5 sm:w-full  rounded-lg z-50 bg-white border border-1 border-purple-200">
       <div className="flex  flex-col gap-4 items-center justify-center relative w-full h-full bg-white rounded-lg p-8 ">
       <div className="  flex flex-col items-center justify-center bg-white gap-4 ">
         <div className=" h-[50px] w-[50px]">{selectedCard.renderIcon(selectedCard.color + ' ' + 'text-5xl ')}</div>

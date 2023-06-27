@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html style={{ overflowX: "hidden", scrollBehavior: "smooth" }} lang="en">
-      <body className="flex flex-col justify-between min-h-screen h-auto">
+      <body className="flex flex-col justify-between ">
         <main>{children}</main>
         <footer className=" bg-purple-100/20 min-h-[10vh] h-full md:text-sm text-md  flex md:flex-col justify-between items-center w-screen  px-48 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-4">
           <p>
