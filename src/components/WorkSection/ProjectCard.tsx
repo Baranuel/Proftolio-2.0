@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useAnimation, stagger } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import colors from "@/app/colors";
 import { ProjectDto } from "../../types/ProjectDto";
 interface Props {
@@ -12,9 +13,16 @@ interface Props {
 }
 function ProjectCard({ color, variants, project }: Props) {
   const [active, setActive] = React.useState(false);
+
+  const item = {
+    hidden: { opacity: 0, x: "100%" },
+    show: { opacity: 1, x: 0},
+  };
+
+  
   return (
-    <motion.div
-      variants={variants}
+    <motion.li
+      variants={item}
       onMouseOver={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
       className={`flex flex-col justify-between hover:cursor-pointer p-2 max:h-[320px] max:w-[550px] min-w-[350px] h-[300px] lg:h-[275px] md:h-[250px] w-[calc(33%-15px)] xl:w-[450px]   rounded-lg  ${
@@ -58,7 +66,7 @@ function ProjectCard({ color, variants, project }: Props) {
           <span className={`${colors.text[color]}`}>Live Demo</span>
         </Link>
       </div> */}
-    </motion.div>
+    </motion.li>
   );
 }
 

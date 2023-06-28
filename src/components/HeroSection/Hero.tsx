@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 
 import nameTag from "../../../public/samuel-baran.svg";
+import Link from "next/link";
 
 function Hero() {
   return (
@@ -15,9 +16,9 @@ function Hero() {
         Creative developer with passion for eye-catching products
       </p>
       <button className=" mt-10  px-6 py-4 sm:py-3 shadow-button active:shadow-button-pressed active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg min-w-[220px] w-[250px] sm:w-[200px] border border-slate-100 bg-slate-100 font-quicksand">
-        <p className="text-inner text-2xl sm:text-lg text-lightPink font-medium">
+        <Link scroll={false} href='#work' className="text-inner text-2xl sm:text-lg text-lightPink font-medium">
           See projects
-        </p>
+        </Link>
       </button>
     </div>
   );

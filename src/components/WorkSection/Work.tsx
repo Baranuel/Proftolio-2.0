@@ -2,23 +2,13 @@
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import ProjectCard from "./ProjectCard";
-import { useInView } from "react-intersection-observer";
 import { appear, appearWork, showProject } from "../../app/animations";
 
 import ProjectsList from "./ProjectsList";
 import { ProjectDto } from "../../types/ProjectDto";
 
 function Work({ projects }: { projects: ProjectDto[] }) {
-  const controls = useAnimation();
-  const { ref, inView } = useInView({
-    threshold: 0.25,
-  });
 
-  useEffect(() => {
-    if (inView) {
-      controls.start("show");
-    }
-  }, [controls, inView]);
 
   return (
     <div
@@ -29,10 +19,7 @@ function Work({ projects }: { projects: ProjectDto[] }) {
         My Projects
       </h1>
       <motion.div
-        ref={ref}
         variants={appear}
-        initial="hidden"
-        animate={controls}
         className="w-full flex h-full xl:justify-center flex-wrap gap-4 mt-12"
       >
         <ProjectsList projects={projects} />
