@@ -24,7 +24,7 @@ function ToolsGrid() {
   const tsIconRef = useRef<HTMLDivElement>(null!);
   const [isPresent, safeToRemove] = usePresence();
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.25,
   });
   const controls = useAnimation();
   const tsControls = useAnimation();

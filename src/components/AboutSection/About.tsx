@@ -19,8 +19,8 @@ const cards = [
       <BsFire className={`text-4xl  self-center ${className}`} />
     ),
     title:'Blazing Passion',
-    text:'Fuelled by an unwavering passion for creating extraordinary digital experiences. I ignite the spark of innovation, breathing life into captivating designs and dynamic functionalities.'
-  },
+    text:'Ignited with spark of innovation, I strive to bring the engaging and functional together. What gets me going is a cup of coffee and an entire day ahead.'
+ },
   {
     id:2,
     colorTitle: "blue",
@@ -30,7 +30,7 @@ const cards = [
       <BsFillDropletFill className={`text-4xl l self-center ${className}`} />
     ),
     title:'Soothing Flow',
-    text:'I navigate with calm determination, flowing effortlessly around obstacles that come my way. Just as water adapts to its environment, I embrace challenges, constantly seeking creative solutions and staying composed in the face of complexity.'
+    text:` Constantly seeking proper solutions in the midst of complex situations, while jamming to a mix of EDM bangers and face-melting metal tunes.`
   },
   {
     id:3,
@@ -41,8 +41,7 @@ const cards = [
       <BiWind className={`text-4xl self-center ${className}`} />
     ),
     title:'Swift Gust',
-    text:' Like a gentle breeze, I bring fresh perspectives and cutting-edge solutions to the table. With an open mind and a passion for exploration, I embrace the dynamic nature of the digital world, adapting and evolving alongside emerging trends and technologies.'
-  },
+    text:`Like a gentle breeze, I bring a breath of fresh perspectives to the table with an open mind and eagerness for exploration. Applicable both at work and on Summoner's Rift`},
   {
     id:4,
     colorTitle: "amber",
@@ -52,8 +51,7 @@ const cards = [
       <GiGroundSprout className={`text-4xl self-center ${className}`} />
     ),
     title:'Solid Mastery',
-    text:'Grounded in the world of web development, I provide a solid foundation for your digital aspirations. Like the earth beneath our feet, I am reliable, steadfast, and meticulous in my approach.'
-  },
+    text:`Whether it's drilling down component props or hitting the gym for some pull-up action. I keep going until I'm done, or take a break when I can't push any further.`},
 ];
 
 
