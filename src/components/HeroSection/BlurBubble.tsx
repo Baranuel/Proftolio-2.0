@@ -1,5 +1,4 @@
 import React, { useRef, useLayoutEffect } from "react";
-import { gsap } from "gsap";
 
 interface BlurBubbleProps {
   options: Record<string, string>;
