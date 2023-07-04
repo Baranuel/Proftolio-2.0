@@ -16,7 +16,7 @@ function loading() {
             className={`flex gap-1  items-center text-lg  mb-4  hover:cursor-pointer`}
           >
             <RiArrowGoBackLine />
-            <h1>Back</h1>
+            <h1>Back to projects</h1>
           </a>
           <div className="  flex items-center w-full justify-between gap-4">
             <Skeleton />

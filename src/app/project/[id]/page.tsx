@@ -74,7 +74,7 @@ async function ProjectPage({ params }: any) {
               </div>
 
               <div className=" flex-col gap-6 justify-between">
-                <div className="mt-4 p-2">
+                <div className="mt-4 ">
                   <h1 className="text-lg text-[#333] font-semibold">
                     Overview
                   </h1>
