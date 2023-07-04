@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Providers } from "../providers/Providers";
+import { VisitedProjectsProvider } from "../providers/VisitedProjectsProvider";
 import "./globals.css";
 
 export const metadata = {
@@ -13,14 +15,14 @@ export default function RootLayout({
 }) {
   return (
     <html style={{ overflowX: "hidden", scrollBehavior: "smooth" }} lang="en">
-      <body className="flex flex-col justify-between ">
-        <main>{children}</main>
-        <footer className=" bg-purple-100/20 min-h-[10vh] h-full md:text-sm text-md  flex md:flex-col justify-between items-center w-screen  px-48 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-4">
+      <body className="flex flex-col justify-between min-h-screen ">
+        <Providers>
+          <main>{children}</main>
+        </Providers>
+        <footer className=" bg-purple-100/20 min-h-[100px] h-full md:text-sm text-md  flex md:flex-col justify-between md:justify-center  items-center w-screen  px-48 2xl:px-24 xl:px-12 lg:px-12 sm:px-6 py-4">
           <p>
             Developed and Designed by{" "}
-            <span className="font-black text-transparent w-fit bg-clip-text bg-gradient-to-r from-lightBlue via-lightPink to-darkPurple">
-              Samuel Baran
-            </span>
+            <span className="font-bold text-purple-500 ">Samuel Baran</span>
           </p>
           <Link
             target="_blank"

@@ -15,11 +15,15 @@ function Hero() {
       <p className="mt-6 sm:mt-6 text-left  text-xl lg:text-lg sm:text-md sm:text-center font-quicksand text-zinc-500">
         Creative developer with passion for eye-catching products
       </p>
-      <button className=" mt-10  px-6 py-4 sm:py-3 shadow-button active:shadow-button-pressed active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg min-w-[220px] w-[250px] sm:w-[200px] border border-slate-100 bg-slate-100 font-quicksand">
-        <Link scroll={false} href='#work' className="text-inner text-2xl sm:text-lg text-lightPink font-medium">
+      <Link
+        scroll={false}
+        href="#work"
+        className="text-inner text-2xl sm:text-lg text-lightPink font-medium"
+      >
+        <button className=" mt-10  px-6 py-4 sm:py-3 shadow-button active:shadow-button-pressed active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg min-w-[220px] w-[250px] sm:w-[200px] border border-slate-100 bg-slate-100 font-quicksand">
           See projects
-        </Link>
-      </button>
+        </button>
+      </Link>
     </div>
   );
 }

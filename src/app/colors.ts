@@ -62,6 +62,15 @@ const colors: any = {
     slate: "bg-slate-500",
     blue: "bg-blue-500",
   },
+  fill: {
+    green: "fill-green-500",
+    red: "fill-red-500",
+    purple: "fill-purple-500",
+    teal: "fill-teal-500",
+    amber: "fill-amber-500",
+    slate: "fill-slate-500",
+    blue: "fill-blue-500",
+  },
 };
 
 export default colors;

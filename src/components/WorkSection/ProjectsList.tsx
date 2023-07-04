@@ -7,7 +7,6 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 function ProjectsList({ projects }: { projects: ProjectDto[] }) {
-
   const controls = useAnimation();
   const { ref, inView } = useInView({
     threshold: 0.15,
@@ -19,9 +18,14 @@ function ProjectsList({ projects }: { projects: ProjectDto[] }) {
     }
   }, [controls, inView]);
 
-
   return (
-    <motion.ul ref={ref} animate={controls} initial='hidden' variants={appearWork} className="w-full h-full flex flex-wrap gap-2 items-center ">
+    <motion.ul
+      ref={ref}
+      animate={controls}
+      initial="hidden"
+      variants={appearWork}
+      className="w-full h-full flex flex-wrap gap-4 items-center "
+    >
       {projects?.map((project) => (
         <ProjectCard
           key={project._id + "project"}

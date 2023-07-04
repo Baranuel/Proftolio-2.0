@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import ToolsGrid from "./ToolsGrid";
 
@@ -35,17 +36,25 @@ function Tools() {
             Find out more
           </h3>
           <div className="flex gap-2">
-            <a className="relative flex justify-center items-center cursor-pointer sm:mt-0 mt-2 px-4 py-3 sm:py-3 shadow-icon active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg border border-slate-100 bg-white font-quicksand">
+            <Link
+              target={"_blank"}
+              href={"https://www.linkedin.com/in/samuel-baran-1706a9225/"}
+              className="relative flex justify-center items-center cursor-pointer sm:mt-0 mt-2 px-4 py-3 sm:py-3 shadow-icon active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg  bg-white font-quicksand"
+            >
               <Image
                 src="/linkedin-in.svg"
                 alt="linkedin"
                 width={25}
                 height={25}
               />
-            </a>
-            <a className="relative flex justify-center items-center cursor-pointer sm:mt-0 mt-2 px-4 py-3 sm:py-3 shadow-icon active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg border border-slate-100 bg-white font-quicksand">
+            </Link>
+            <Link
+              href={"https://github.com/Baranuel"}
+              target="_blank"
+              className="relative flex justify-center items-center cursor-pointer sm:mt-0 mt-2 px-4 py-3 sm:py-3 shadow-icon active:bg-gradient-to-br from-[#DEDDF7] to-white transition-shadow duration-200 rounded-lg bg-white font-quicksand"
+            >
               <Image src="/github.svg" alt="github" width={25} height={25} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

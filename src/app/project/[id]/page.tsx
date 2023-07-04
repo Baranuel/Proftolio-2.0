@@ -4,16 +4,21 @@ import colors from "../../colors";
 import TriggerPreview from "./(components)/TriggerPreview";
 import { BASE_URL } from "../../../helpers";
 import Carousel from "./(components)/Carousel";
+import { getProjects } from "../../../functions";
+import Link from "next/link";
+
+import NextProjectComponent from "./(components)/NextProjectComponent";
 
 const getData = async (url: string) => {
   const res = await fetch(url, { next: { revalidate: 60 } });
   return res.json();
 };
 async function ProjectPage({ params }: any) {
+  const allProjects = await getProjects();
   const project = await getData(BASE_URL + `/api/projects/${params.id}`);
-
   return (
     <>
+      {/* <div>{JSON.stringify(nextProject)}</div> */}
       <div className="flex relative  w-full px-80 2xl:px-24 xl:px-12 lg:px-12 sm:px-2 py-24 md:py-4">
         <div className="w-3/4 lg:w-full mx-auto   mt-4 text-black  ">
           <a
@@ -23,7 +28,7 @@ async function ProjectPage({ params }: any) {
             } hover:cursor-pointer`}
           >
             <RiArrowGoBackLine />
-            <h1>Back</h1>
+            <h1>Back to projects</h1>
           </a>
           <div className="  flex items-center w-full justify-between gap-4">
             {/* {isLoading && <Skeleton />} */}
@@ -34,10 +39,10 @@ async function ProjectPage({ params }: any) {
             >
               {project?.title}
             </h1>
-            <button className="text-lg font-inter">Next Project</button>
+            <NextProjectComponent project={project} allProjects={allProjects} />
           </div>
           <hr className="my-6 md:my-3" />
-          <div className="">
+          <div className="mb-2">
             <div className="relative max-h-[270px] h-[30vh] md:h-[20vh] min-h-[175px] bg-gray-200 rounded-xl">
               {
                 <Image
@@ -49,7 +54,7 @@ async function ProjectPage({ params }: any) {
               }
             </div>
             <TriggerPreview project={project} />
-            <div className="flex gap-4 flex-col justify-between">
+            <div className="flex gap-4 flex-col justify-between md:justify-start">
               <div className="mt-4">
                 <h1 className={`text-lg text-[#333] font-semibold`}>
                   Deliverables
@@ -69,7 +74,7 @@ async function ProjectPage({ params }: any) {
               </div>
 
               <div className=" flex-col gap-6 justify-between">
-                <div className="mt-4">
+                <div className="mt-4 p-2">
                   <h1 className="text-lg text-[#333] font-semibold">
                     Overview
                   </h1>
@@ -88,7 +93,6 @@ async function ProjectPage({ params }: any) {
               </div>
             </div>
           </div>
-          <div className="mt-12"></div>
         </div>
       </div>
     </>
